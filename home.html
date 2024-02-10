@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="home.css">
+  </head>
+
+  <body>
+  <!-- Navigation -->
+    <nav class="home-bar">
+    <a href="#home" class="home-item">Home</a>
+    <a href="#band" class="home-item">Band</a>
+    <a href="#tour" class="home-item">Tour</a>
+    <a href="#contact" class="home-item">Contact</a>
+    </nav>
+  
+    <!-- Band Description -->
+    <h2>Discover Philly</h2>
+    <p><i>Where your imagination comes true</i></p>
+  
+    <div class="slide">
+    <img class="mySlides" src="mario1.jpg">
+    <div class="description">Description for Slide 1</div>
+    </div>
+
+    <div class="slide">
+    <img class="mySlides" src="milwaukeebucks.png">
+    <div class="description">Description for Slide 2</div>
+    </div>
+
+    <div class="slide">
+    <img class="mySlides" src="mario1.jpg">
+    <div class="description">Description for Slide 3</div>
+    </div>
+
+    <p>Don't know where to visit? Tap on the links to see some interesting attractions of Philly</p>
+  
+    <script>
+    // Automatic Slideshow - change image every 4 seconds
+      var myIndex = 0;
+      carousel();
+  
+    function carousel() {
+      var i;
+      var x = document.getElementsByClassName("mySlides");
+      for (i = 0; i < x.length; i++) {
+         x[i].style.display = "none";
+      }
+      myIndex++;
+      if (myIndex > x.length) {myIndex = 1}
+      x[myIndex-1].style.display = "block";
+      setTimeout(carousel, 4000);
+  }
+    </script>
+  
+  
+  </body>
+  </html>
