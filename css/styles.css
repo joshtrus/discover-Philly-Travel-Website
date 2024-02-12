@@ -1,4 +1,65 @@
-.monthly-destinations{
-    display: flex;
-  justify-content: space-between;
+.destinations-images{
+  display: flex;
+  justify-content: center;
+  margin: 4%;
+
+}
+
+.destination_button{
+  margin: auto;
+}
+
+.destination_button img {
+  width: 300px;
+  height: 200px;
+  object-fit: cover;
+}
+
+.destination_container h1{
+  font-style: normal;
+  text-align: center;
+  font-size: 60px;
+  margin-bottom: 6%;
+  padding-top: 5%;
+  margin-top: 0%;
+}
+
+.button_container{
+  height: 100px;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 200px;
+  margin-bottom: 50px;
+  }
+
+.pill {
+  font-size: 20px;
+  font-family: 'Readex Pro', sans-serif;
+  padding: 1em 6em;
+  margin: 0.25em;
+  border-radius: 2em;
+  color: white;
+  border: none;
+  outline: none ;
+  background-color: #B9D4CF;
+  cursor: pointer;
+  text-align: center;
+  top: 50%;
+  transform: translateY(-50%); 
+}
+
+.pill:hover {
+  background-color: #407D6D;
+}
+
+.destination{
+  background-color: #F2F6F8;
+  width: 100%;
+  padding: 0%;
+}
+
+.body{
+  height: 100vh;
 }
