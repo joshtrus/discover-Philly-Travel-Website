@@ -13,23 +13,72 @@
 
 </head>
 <body>
-    <div class="container">
-        <h1>Destination of the month</h1>
-        <div class="monthly-destinations">
-            <a href="#" class="destination_button">
-                <img src="image1.jpg" alt="Button 1">
-            </a>
-            <a href="#" class="button">
-                <img src="image2.jpg" alt="Button 2">
-            </a>
-            <a href="#" class="button">
-                <img src="image3.jpg" alt="Button 3">
-            </a>
+    <section>
+        <!-- Navigation -->
+        <nav class="home-bar">
+        <a href="#home" class="home-item">Home</a>
+        <a href="#band" class="home-item">Band</a>
+        <a href="#tour" class="home-item">Tour</a>
+        <a href="#contact" class="home-item">Contact</a>
+        </nav>
+        
+        <!-- Band Description -->
+        <h2>Discover Philly</h2>
+        <p><i>Where your imagination comes true</i></p>
+        
+        <div class="slide">
+        <img class="mySlides" src="mario1.jpg">
+        <div class="description">Description for Slide 1</div>
         </div>
-        <div>
-            <a href="#" class="'view_button"><button type="button">VIEW ALL</button></a>
-            
+      
+        <div class="slide">
+        <img class="mySlides" src="milwaukeebucks.png">
+        <div class="description">Description for Slide 2</div>
         </div>
-    </div>
+      
+        <div class="slide">
+        <img class="mySlides" src="mario1.jpg">
+        <div class="description">Description for Slide 3</div>
+        </div>
+      
+        <p>Don't know where to visit? Tap on the links to see some interesting attractions of Philly</p>
+        
+        <script>
+          // Automatic Slideshow - change image every 4 seconds
+        var myIndex = 0;
+            carousel();
+        
+        function carousel() {
+            var i;
+            var x = document.getElementsByClassName("mySlides");
+            for (i = 0; i < x.length; i++) {
+                x[i].style.display = "none";
+            }
+        myIndex++;
+        if (myIndex > x.length) {myIndex = 1}
+            x[myIndex-1].style.display = "block";
+            setTimeout(carousel, 4000);
+        }
+        </script>
+    </section>
+    <section class="destination">
+        <div class="destination_container">
+            <h1>Destination of the month</h1>
+            <div class="destinations-images">
+                <a href="#" class="destination_button">
+                    <img src="images/philly_img.jpeg" alt="Button 1" style="width:350px;height:350px;">
+                </a>
+                <a href="#" class="destination_button">
+                    <img src="images/philly_img2.jpeg" alt="Button 2" style="width:350px;height:350px;">
+                </a>
+                <a href="#" class="destination_button">
+                    <img src="images/philly_img3.jpeg" alt="Button 3" style="width:350px;height:350px;">
+                </a>
+            </div>
+            <div class="button_container">
+                    <a href="#"><button type="button" class="pill">VIEW ALL</button></a> 
+            </div>
+        </div>
+    </section>
 </body>
 
