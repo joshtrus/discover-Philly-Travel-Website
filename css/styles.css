@@ -1,3 +1,17 @@
+nav{
+    display: block;
+    padding: 8px;
+    background-color: #dddddd;
+}
+h2{
+    text-align: center;
+}
+p{
+    text-align: center;
+}
+.mySlides{
+    width: 60%;
+}
 .destinations-images{
   display: flex;
   justify-content: center;
