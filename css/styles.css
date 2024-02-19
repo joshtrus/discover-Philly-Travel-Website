@@ -63,3 +63,21 @@
 .body{
   height: 100vh;
 }
+
+#randImg img {
+  max-width: 50%; 
+  height: 50%; 
+  margin-top: 20px auto; 
+}
+
+.random-body, html{
+  height: 100%;
+  margin: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.random-container{
+  text-align: center;
+}
