@@ -1,4 +1,4 @@
-function getRandomImage() {  
+function beginRandomizer() {  
  
     var randomImage = new Array();  
       
@@ -10,5 +10,30 @@ function getRandomImage() {
     randomImage[5] = "https://www.visitphilly.com/wp-content/uploads/2017/12/academy-of-natural-sciences-dinosaur-hall-new-crtsy-mike-servedio-ans-2200x1237px.jpg";  
        
     var number = Math.floor(Math.random()*randomImage.length);  
-    return document.getElementById("randImg").innerHTML = '<img src="'+randomImage[number]+'" />';  
+    document.getElementById("randImg").innerHTML = '<img src="'+randomImage[number]+'" />';  
+
+    document.getElementById("startButton").style.display = "none";
+    
+    // Create and append two new buttons below the image
+    var buttonContainer = document.createElement("div");
+    buttonContainer.className = "button_container";
+
+    var button1 = document.createElement("button");
+    button1.textContent = "Skip Place";
+    button1.id = "button1";
+    button1.addEventListener("click", beginRandomizer);
+
+    var button2 = document.createElement("button");
+    button2.textContent = "Take me there!";
+    button2.id = "button2";
+    button2.addEventListener("click", function() {
+        alert("Button 2 clicked!");
+    });
+
+    buttonContainer.appendChild(button1);
+    buttonContainer.appendChild(button2);
+
+    document.getElementById("randImg").appendChild(buttonContainer);
+    
+
 }
