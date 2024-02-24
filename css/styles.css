@@ -5,7 +5,7 @@
 }
 
 .home-bar {
-  display: flex; /* Use flexbox layout */
+  display: flex;
   align-items: center; /* Vertically align items */
 }
 
@@ -17,7 +17,7 @@
 }
 
 .logo-image {
-  height: 80px; /* Adjust the height as needed */
+  height: 80px; 
   width: auto; /* Ensures the width scales proportionally with the height */
   margin-right: auto;
 }
@@ -71,14 +71,13 @@ p {
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 200px; /* Adjust height as needed */
+  height: 200px; 
   margin-bottom: 50px;
 }
 
 .pill {
-  /* Add your button styles here */
   padding: 10px 20px;
-  background-color: #007bff; /* Example background color */
+  background-color: #007bff; 
   color: white;
   border: none;
   border-radius: 5px;
