@@ -1,25 +1,53 @@
-nav{
-    display: block;
-    padding: 8px;
-    background-color: #dddddd;
+.nav {
+  display: block;
+  padding: 8px;
+  background-color: red;
 }
-h2{
-    text-align: center;
+
+.home-bar {
+  display: flex; /* Use flexbox layout */
+  align-items: center; /* Vertically align items */
 }
-p{
-    text-align: center;
+
+.home-item {
+  margin-right: 220px; /* Add space between each navigation item */
+  color: red;
+  font-size: 18px;
+  font-family: Georgia, 'Times New Roman', Times, serif;
 }
-.mySlides{
-    width: 60%;
+
+.logo-image {
+  height: 80px; /* Adjust the height as needed */
+  width: auto; /* Ensures the width scales proportionally with the height */
+  margin-right: auto;
 }
-.destinations-images{
+
+h1 {
+  text-align: center;
+  font-family: Georgia, 'Times New Roman', Times, serif;
+}
+
+p {
+  text-align: center;
+  font-family: Georgia, 'Times New Roman', Times, serif;
+}
+
+.mySlides {
+  width: 60%;
+}
+
+.destinations-images {
   display: flex;
   justify-content: center;
   margin: 4%;
-
 }
 
-.destination_button{
+.places img {
+  width: 200px;
+  height: 200px;
+}
+
+.destination_button {
   margin: auto;
 }
 
@@ -29,7 +57,7 @@ p{
   object-fit: cover;
 }
 
-.destination_container h1{
+.destination_container h1 {
   font-style: normal;
   text-align: center;
   font-size: 60px;
@@ -38,60 +66,36 @@ p{
   margin-top: 0%;
 }
 
-.button_container{
-  height: 100px;
-  position: relative;
+.button_container {
+  text-align: center;
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 200px;
+  height: 200px; /* Adjust height as needed */
   margin-bottom: 50px;
-  }
+}
 
 .pill {
-  font-size: 20px;
-  font-family: 'Readex Pro', sans-serif;
-  padding: 1em 6em;
-  margin: 0.25em;
-  border-radius: 2em;
+  /* Add your button styles here */
+  padding: 10px 20px;
+  background-color: #007bff; /* Example background color */
   color: white;
   border: none;
-  outline: none ;
-  background-color: #B9D4CF;
+  border-radius: 5px;
+  font-size: 18px;
   cursor: pointer;
-  text-align: center;
-  top: 50%;
-  transform: translateY(-50%); 
 }
 
 .pill:hover {
   background-color: #407D6D;
 }
 
-.destination{
+.destination {
   background-color: #F2F6F8;
   width: 100%;
   padding: 0%;
 }
 
-.body{
+.body {
   height: 100vh;
-}
-
-#randImg img {
-  max-width: 50%; 
-  height: 50%; 
-  margin-top: 20px auto; 
-}
-
-.random-body, html{
-  height: 100%;
-  margin: 0;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-.random-container{
-  text-align: center;
 }

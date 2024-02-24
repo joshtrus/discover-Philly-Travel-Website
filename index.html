@@ -1,84 +1,86 @@
 <!doctype html>
-
 <html lang="en">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  
   <title>Discover Philly</title>
   <meta name="description" content="Discover Philly site">
   <meta name="author" content="Pirmann">
-
-  <link rel="stylesheet" href="css/styles.css" href="js/script.js">
-
+  <link rel="stylesheet" href="css/styles.css">
 </head>
 <body>
-    <section>
-        <!-- Navigation -->
-        <nav class="home-bar">
-        <a href="#home" class="home-item">Home</a>
-        <a href="#band" class="home-item">Places</a>
-        <a href="#" class="home-item">Random Trip</a>
-        <a href="#contact" class="home-item">Personalized Trip</a>
-        </nav>
-        
-        <!-- Band Description -->
-        <h2>Discover Philly</h2>
-        <p><i>Where your imagination comes true</i></p>
-        
-        <div class="slide">
-        <img class="mySlides" src="Barnes_Philly_1.JPG">
-        <div class="description">Description for Slide 1</div>
-        </div>
-    
-        <div class="slide">
-        <img class="mySlides" src="Belmont_Plateau.jpg">
-        <div class="description">Description for Slide 2</div>
-        </div>
-      
-        <div class="slide">
-        <img class="mySlides" src="Philadelphia_History_Museum_at_the_Atwater_Kent_from_south.jpg">
-        <div class="description">Description for Slide 3</div>
-        </div>
-      
-        <p>Don't know where to visit? Tap on the links to see some interesting attractions of Philly</p>
-        
-        <script>
-          // Automatic Slideshow - change image every 4 seconds
-        var myIndex = 0;
-            carousel();
-        
-        function carousel() {
-            var i;
-            var x = document.getElementsByClassName("mySlides");
-            for (i = 0; i < x.length; i++) {
-                x[i].style.display = "none";
-            }
-        myIndex++;
-        if (myIndex > x.length) {myIndex = 1}
-            x[myIndex-1].style.display = "block";
-            setTimeout(carousel, 4000);
-        }
-        </script>
-    </section>
-    <section class="destination">
-        <div class="destination_container">
-            <h1>Destination of the month</h1>
-            <div class="destinations-images">
-                <a href="#" class="destination_button">
-                    <img src="images/philly_img.jpeg" alt="Button 1" style="width:350px;height:350px;">
-                </a>
-                <a href="#" class="destination_button">
-                    <img src="images/philly_img2.jpeg" alt="Button 2" style="width:350px;height:350px;">
-                </a>
-                <a href="#" class="destination_button">
-                    <img src="images/philly_img3.jpeg" alt="Button 3" style="width:350px;height:350px;">
-                </a>
-            </div>
-            <div class="button_container">
-                    <a href="#"><button type="button" class="pill">VIEW ALL</button></a> 
-            </div>
-        </div>
-    </section>
-</body>
+  <!-- Navigation -->
+    <nav class="home-bar">
+      <img src="Logo.png" class="logo-image" alt="Logo">
+      <a href="#" class="home-item">Home</a>
+      <a href="#" class="home-item">Places</a>
+      <a href="random.html" class="home-item">Random Trip</a>
+      <a href="#" class="home-item">Personalized Trip</a>
+    </nav>
+  
+  <!-- Main Content -->
+    <h1>Find your Trip</h1>
+    <p><i>Trek Care Philly</i></p>
 
+    <div class="button_container">
+      <a href="#"><button type="button" class="pill">Explore Philly</button></a>
+    </div>
+
+    <section class="destination">
+      <div class="destination_container">
+        <h2>Destination of the month</h2>
+        <div class="destinations-images">
+          <a href="#" class="destination_button">
+            <img src="images/philly_img.jpeg" alt="Button 1">
+          </a>
+          <a href="#" class="destination_button">
+            <img src="images/philly_img2.jpeg" alt="Button 2">
+          </a>
+          <a href="#" class="destination_button">
+            <img src="images/philly_img3.jpeg" alt="Button 3">
+          </a>
+        </div>
+        <div class="button_container">
+          <a href="#"><button type="button" class="pill">VIEW ALL</button></a>
+        </div>
+      </div>
+    </section>
+
+    <div class="places">
+      <div class="slide">
+        <img class="mySlides" src="Barnes_Philly_1.JPG" alt="Slide 1">
+        <div class="description">Description for Slide 1</div>
+      </div>
+    
+      <div class="slide">
+        <img class="mySlides" src="Belmont_Plateau.jpg" alt="Slide 2">
+        <div class="description">Description for Slide 2</div>
+      </div>
+      
+      <div class="slide">
+        <img class="mySlides" src="Philadelphia_History_Museum_at_the_Atwater_Kent_from_south.jpg" alt="Slide 3">
+        <div class="description">Description for Slide 3</div>
+      </div>
+    </div>
+    
+    <p>Don't know where to visit? Tap on the links to see some interesting attractions of Philly</p>
+
+  <!-- Script for Slide Show -->
+  <script>
+    var myIndex = 0;
+    carousel();
+
+    function carousel() {
+      var i;
+      var x = document.getElementsByClassName("mySlides");
+      for (i = 0; i < x.length; i++) {
+        x[i].style.display = "none";
+      }
+      myIndex++;
+      if (myIndex > x.length) { myIndex = 1 }
+      x[myIndex - 1].style.display = "block";
+      setTimeout(carousel, 4000);
+    }
+  </script>
+</body>
+</html>
