@@ -1,24 +1,18 @@
-.nav {
-  display: block;
-  padding: 8px;
-  background-color: red;
-}
-
 .home-bar {
-  display: flex;
-  align-items: center; /* Vertically align items */
+  display: flex; 
+  align-items: center; 
 }
 
 .home-item {
-  margin-right: 220px; /* Add space between each navigation item */
+  margin-right: 220px; 
   color: red;
   font-size: 18px;
   font-family: Georgia, 'Times New Roman', Times, serif;
 }
 
 .logo-image {
-  height: 80px; 
-  width: auto; /* Ensures the width scales proportionally with the height */
+  height: 20px; 
+  width: 20px; 
   margin-right: auto;
 }
 
@@ -34,6 +28,7 @@ p {
 
 .mySlides {
   width: 60%;
+  display: none;
 }
 
 .destinations-images {
@@ -42,9 +37,12 @@ p {
   margin: 4%;
 }
 
-.places img {
-  width: 200px;
-  height: 200px;
+.places{
+  position: relative;
+}
+.placesa img{
+width: 400px;
+height: 250px;
 }
 
 .destination_button {
@@ -71,7 +69,7 @@ p {
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 200px; 
+  height: 200px; /* Adjust height as needed */
   margin-bottom: 50px;
 }
 
@@ -97,4 +95,24 @@ p {
 
 .body {
   height: 100vh;
+}
+
+.prev, .next {
+  position: absolute; /* Position relative to the container */
+  top: 50%; /* Align vertically */
+  transform: translateY(-50%); 
+  background-color: rgba(0, 0, 0, 0.5);
+  color: white;
+  font-size: 20px;
+  border: none;
+  cursor: pointer;
+  padding: 10px;
+  z-index: 1;
+}
+
+.prev {
+  left: 10px; 
+}
+.next {
+  right: 1070px; 
 }
