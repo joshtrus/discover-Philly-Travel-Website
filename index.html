@@ -9,14 +9,15 @@
   <link rel="stylesheet" href="css/styles.css">
 </head>
 <body>
-  <!-- Navigation -->
-  <nav class="home-bar">
-    <img src="images/Logo.png" class="logo-image" alt="Logo">
-    <a href="#" class="home-item">Home</a>
-    <a href="#" class="home-item">Places</a>
-    <a href="random.html" class="home-item">Random Trip</a>
-    <a href="#" class="home-item">Personalized Trip</a>
-  </nav>
+  <!-- Make width to 100 -->
+ <ul>
+  <li><img src="images/Logo.png" class="logo" alt="Logo"></li>
+  <li><a href="#">About</a></li>
+  <li><a href="database.html">Places</a></li>
+  <li><a href="Random.html">Random Trip</a></li>
+  <li><a href="#about">Weather</a></li>
+</ul>
+
   
   <!-- Main Content -->
   <h1>Find your Trip</h1>
@@ -50,17 +51,17 @@
   <div class ="placesa">
   <div class="slide">
     <img src="images/Barnes_Philly_1.JPG" alt="Slide 1">
-    <div class="description">Barnes Museum</div>
+    <div class="description">Description for Slide 1</div>
   </div>
 
   <div class="slide">
     <img src="images/Belmont_Plateau.jpg" alt="Slide 2">
-    <div class="description">Belmont Plateau</div>
+    <div class="description">Description for Slide 2</div>
   </div>
   
   <div class="slide">
     <img src="images/Philadelphia_History_Museum_at_the_Atwater_Kent_from_south.jpg" alt="Slide 3">
-    <div class="description">Philadelphia History Museum</div>
+    <div class="description">Description for Slide 3</div>
   </div>
   
   <button class="prev" onclick="plusSlides(-1)">&#10094;</button>
@@ -70,17 +71,19 @@
 
   <p>Don't know where to visit? Tap on the links to see some interesting attractions of Philly</p>
 
+  <!-- Script for Slide Show -->
    <script>
-       
-    document.addEventListener("DOMContentLoaded", function() {
-    
+        // Wait for the DOM content to be fully loaded
+document.addEventListener("DOMContentLoaded", function() {
+    // Initialize the slideshow when the DOM is ready
     const slides = document.querySelectorAll('.slide');
     const prevButton = document.querySelector('.prev');
     const nextButton = document.querySelector('.next');
     let currentSlideIndex = 0;
 
-    //show a specific slide
+    // Function to show a specific slide
     function showSlide(index) {
+        // Hide all slides
         slides.forEach((slide) => {
             slide.style.display = 'none';
         });
@@ -89,16 +92,16 @@
         slides[index].style.display = 'block';
     }
 
-    // Show the initial slide
+  
     showSlide(currentSlideIndex);
 
-    //navigate to the previous slide
+
     function prevSlide() {
         currentSlideIndex = (currentSlideIndex - 1 + slides.length) % slides.length;
         showSlide(currentSlideIndex);
     }
 
-    //  navigate to the next slide
+    
     function nextSlide() {
         currentSlideIndex = (currentSlideIndex + 1) % slides.length;
         showSlide(currentSlideIndex);
