@@ -10,8 +10,10 @@
 </head>
 <body>
   <!-- Navigation -->
+  <section class="section" id="homepage">
+    <div>
     <nav class="home-bar">
-      <img src="Logo.png" class="logo-image" alt="Logo">
+      <img src="images/Logo.png" class="logo-image" alt="Logo">
       <a href="#" class="home-item">Home</a>
       <a href="#" class="home-item">Places</a>
       <a href="random.html" class="home-item">Random Trip</a>
@@ -25,8 +27,9 @@
     <div class="button_container">
       <a href="#"><button type="button" class="pill">Explore Philly</button></a>
     </div>
-
-    <section class="destination">
+  </div>
+  </section>
+    <section class="section" id="destination">
       <div class="destination_container">
         <h2>Destination of the month</h2>
         <div class="destinations-images">
@@ -46,6 +49,7 @@
       </div>
     </section>
 
+    <section class="section" id="slideshow">
     <div class="places">
       <div class="slide">
         <img class="mySlides" src="Barnes_Philly_1.JPG" alt="Slide 1">
@@ -104,5 +108,6 @@
     nextButton.addEventListener('click', nextSlide);
 });
     </script>
+    </section>
 </body>
 </html>
