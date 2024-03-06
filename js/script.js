@@ -27,7 +27,7 @@ function beginRandomizer() {
     button2.textContent = "Take me there!";
     button2.id = "button2";
     button2.addEventListener("click", function() {
-        alert("Button 2 clicked!");
+        window.location.href = "rating.html";
     });
 
     buttonContainer.appendChild(button1);
