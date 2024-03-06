@@ -125,13 +125,14 @@
      right: 1070px; 
  }
 
+
 #randImg img {
   max-width: 50%; 
   height: 50%; 
   margin-top: 20px auto; 
 }
 
-.random-body, html{
+.random-body{
   height: 100%;
   margin: 0;
   display: flex;
