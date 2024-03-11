@@ -1,9 +1,11 @@
+-- Create a database called philly_travel if it doesn't already exist
 CREATE DATABASE IF NOT EXISTS philly_travel;
 
+-- Use the philly_travel database
 USE philly_travel;
-
+-- Drop the places table if it already exists
 DROP TABLE IF EXISTS places;
-
+-- Create a new places table with appropriate data types
 CREATE TABLE places (
     id INT AUTO_INCREMENT PRIMARY KEY,
     name VARCHAR(255) NOT NULL,
@@ -12,7 +14,7 @@ CREATE TABLE places (
     address VARCHAR(255) NOT NULL,
     tripadvisor_rating DECIMAL(3, 1)
 );
-
+-- Insert data into the places table
 INSERT INTO places (name, description, picture_url, address, tripadvisor_rating) VALUES
 ('American Philosophical Society', 'Prominent scholarly organization dedicated to the advancement of knowledge in science, humanities, and social sciences.', 'https://upload.wikimedia.org/wikipedia/commons/thumb/1/19/American_Philosophical_Society_%2820864173941%29.jpg/1920px-American_Philosophical_Society_%2820864173941%29.jpg', '104 S. Fifth Street, Philadelphia', 4.5),
 ('Benjamin Franklin National Memorial', 'Commemorative statue and memorial hall honoring the life and achievements of Benjamin Franklin.', 'https://upload.wikimedia.org/wikipedia/commons/5/5a/Benjamin_Franklin_National_Memorial.jpg', '222 N. 20th Street, Philadelphia', 4.5),
