@@ -83,7 +83,8 @@
     margin-bottom: 50px;
     margin-top: 50px;
   }
-  
+
+/*The code for the pill button style comes from @dcode on YouTube */ 
   .pill {
     font-size: 20px;
     font-family: 'Readex Pro', sans-serif;
