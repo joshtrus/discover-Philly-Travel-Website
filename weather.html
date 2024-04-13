@@ -7,25 +7,128 @@
     <title>Weather Viewer</title>
 </head>
 <body>
-  <nav> 
-  <ul>
-    <li><img src="images/Logo.png" class="logo" alt="Logo"></li>
-    <li><a href="index.html">Home</a></li>
-    <li><a href="database.html">Places</a></li>
-    <li><a href="random.html">Random Trip</a></li>
-    <li><a href="#about">Maps</a></li>
-  </ul>
-  </nav>
+    <nav> 
+        <ul>
+            <li><img src="images/Logo.png" class="logo" alt="Logo"></li>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="database.html">Places</a></li>
+            <li><a href="random.html">Random Trip</a></li>
+            <li><a href="#about">Maps</a></li>
+        </ul>
+    </nav>
 
-  <h1>Select a Location</h1>
-    <select id="location">
-        <option value="bryn-athyn">Bryn Athyn, PA</option>
+    <h1>Pick your weather</h1>
+    <select id="location" class="location-select">
         <option value="philadelphia">Philadelphia, PA</option>
         <option value="upper-darby">Upper Darby, PA</option>
-        <option value="eddington">Eddington, PA</option>
-        <!-- Add more options for other locations as needed -->
+        <option value="king-of-prussia">King of Prussia, PA</option>
+        <option value="levittown">Levittown, PA</option>
+        <option value="chester">Chester, PA</option>
+        <option value="bensalem">Bensalem, PA</option> 
+        <option value="bustleton">Bustleton, PA</option>
     </select>
 
     <button onclick="getWeather()">Get Weather</button>
-    <!-- Get weather function will be added in the future-->
+
+    <div id="weather"></div>
+
+    <script>
+        function getWeather() {
+            const apiKey = 'cae1232fc0f5bd3e11f1c3c373a9cbaf';
+            const location = document.getElementById('location').value;
+            let apiUrl;
+
+            // Uses the API URL based on the selected location
+            if (location === 'bryn-athyn') {
+                apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=Bryn%20Athyn,PA,US&appid=${apiKey}`;
+            } else if (location === 'philadelphia') {
+                apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=Philadelphia,PA,US&appid=${apiKey}`;
+            } else if (location === 'upper-darby') {
+                apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=Upper%20Darby,PA,US&appid=${apiKey}`;
+            } else if (location === 'king-of-prussia') {
+                apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=King%20of%20Prussia,PA,US&appid=${apiKey}`;
+            } else if (location === 'levittown') {
+                apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=Levittown,PA,US&appid=${apiKey}`;
+            } else if (location === 'chester') {
+                apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=Chester,PA,US&appid=${apiKey}`;
+            } else if (location === 'bensalem') {
+                apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=Bensalem,PA,US&appid=${apiKey}`;
+            } else if (location === 'bustleton') {
+                apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=Bustleton,PA,US&appid=${apiKey}`;
+            }
+
+            console.log('API URL:', apiUrl); 
+
+            fetch(apiUrl)
+                .then(response => {
+                    if (!response.ok) {
+                        throw new Error('Network response was not ok');
+                    }
+                    return response.json();
+                })
+                .then(data => {
+                    console.log('Weather data:', data); 
+
+                    //All these information are generate from the weather API
+                    const weatherDescription = data.weather[0].description;
+                    const temperatureKelvin = data.main.temp;
+                    const temperatureCelsius = (temperatureKelvin - 273.15).toFixed(1); // Convert temperature to Celsius and round to nearest tenth (NT)
+                    const temperatureFahrenheit = ((temperatureKelvin - 273.15) * 9/5 + 32).toFixed(1); // Convert temperature to Fahrenheit and NT
+                    const windSpeedMetersPerSec = data.wind.speed; // Wind speed in m/s
+                    const windSpeedMph = (windSpeedMetersPerSec * 2.237).toFixed(1); // Convert wind speed to mph and NT
+                    const windGustMetersPerSec = data.wind.gust; // Wind gust speed in m/s
+                    const windGustMph = (windGustMetersPerSec * 2.237).toFixed(1); // Convert wind gust speed to mph and NT
+                    const sunriseTimestamp = data.sys.sunrise * 1000; // Convert sunrise time from Unix timestamp to milliseconds
+                    const sunsetTimestamp = data.sys.sunset * 1000; // Convert sunset time from Unix timestamp to milliseconds
+
+                    let sunrise = new Date(sunriseTimestamp).toLocaleTimeString([], {hour: '2-digit', minute:'2-digit'}); // Format sunrise time without seconds
+                    let sunset = new Date(sunsetTimestamp).toLocaleTimeString([], {hour: '2-digit', minute:'2-digit'}); // Format sunset time without seconds
+
+                    let imageUrl;
+                    let weatherHtml = ''; // a string
+
+                    //images will be added here in the future. In the meantime, there are warnings for extreme weather. 
+                    if (weatherDescription.includes('light rain') || weatherDescription.includes('moderate rain') || weatherDescription.includes('heavy intensity rain')) {
+                        weatherHtml = '<p class="warning">Warning: Rain. Seek shelter and postpone all outdoor activities!</p>';
+                    } else if (weatherDescription.includes('clear sky')) {
+                    } else if (weatherDescription.includes('overcast clouds')) {
+                    }  else if (weatherDescription.includes('thunderstorm')) {
+                        weatherHtml = '<p class="warning">Warning: Seek shelter immediately! Postpone all plans for today</p>' + weatherHtml;
+                    } else {
+                    }
+
+                    weatherHtml += `
+                        <p>Sunrise: ${sunrise}</p>
+                        <p>Sunset: ${sunset}</p>
+                        <p>Temperature: ${temperatureCelsius}°C (${temperatureFahrenheit}°F)</p>
+                        <p>Weather Description: ${weatherDescription}</p>
+                        <p>Wind Speed: ${windSpeedMph} mph</p>
+                        <p>Wind Gust: ${windGustMph} mph</p>
+                    `;
+
+                    //conditions to check whether it is safe to go outside
+                    if (temperatureCelsius < -10) {
+                        weatherHtml += '<p class="warning">Warning: Extreme cold! Stay warm indoors.</p>';
+                    } else if (windGustMph > 33) { 
+                        weatherHtml += '<p class="warning">Warning: High wind speed! Go when wind speed declines.</p>';
+                    } else if (windSpeedMph > 35) {
+                        weatherHtml += '<p class="warning">Warning: High wind speed! Stay inside.</p>';
+                    } else if (windSpeedMph > 20 && temperatureCelsius < 10) {
+                        weatherHtml += '<p class="warning">Warning: Do not plan to go outside!</p>';
+                    } else if (new Date().getHours() >= 19 || new Date().getHours() < 7) {
+                        weatherHtml += '<p class="night">Plan for tomorrow!</p>';
+                    } else {
+                        weatherHtml += '<p class="cleared">Have fun outside!</p>';
+                    }
+
+                    document.getElementById('weather').innerHTML = weatherHtml;
+                })
+                .catch(error => {
+                    console.error('Error fetching weather data:', error);
+                    document.getElementById('weather').innerHTML = 'Error fetching weather data';
+                });
+        }
+    </script>
+</body>
+</html>
 
