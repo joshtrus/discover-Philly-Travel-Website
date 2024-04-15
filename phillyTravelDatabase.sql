@@ -10,7 +10,7 @@ CREATE TABLE places (
     id INT AUTO_INCREMENT PRIMARY KEY,
     name VARCHAR(255) NOT NULL,
     description TEXT,
-    picture_url VARCHAR(255),
+    picture_url VARCHAR(512),
     address VARCHAR(255) NOT NULL,
     tripadvisor_rating DECIMAL(3, 1)
 );
