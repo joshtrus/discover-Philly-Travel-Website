@@ -96,4 +96,10 @@
     background: #55ACEE;
     color: white;
   }
+
+  .container {
+    width: 80%;
+    margin: 0 auto;
+    padding: 20px; 
+  }
 /* Modified from: https://github.com/mukulkant/Star-rating-using-pure-css */
