@@ -78,11 +78,11 @@
                     const windSpeedMph = (windSpeedMetersPerSec * 2.237).toFixed(1); // Convert wind speed to mph and NT
                     const windGustMetersPerSec = data.wind.gust; // Wind gust speed in m/s
                     const windGustMph = (windGustMetersPerSec * 2.237).toFixed(1); // Convert wind gust speed to mph and NT
-                    const sunriseTimestamp = data.sys.sunrise * 1000; // Convert sunrise time from Unix timestamp to milliseconds
-                    const sunsetTimestamp = data.sys.sunset * 1000; // Convert sunset time from Unix timestamp to milliseconds
+                    const sunriseTimestamp = data.sys.sunrise * 1000; // Convert sunrise time from Unix timestamp to milliseconds. From freecodecamp.org
+                    const sunsetTimestamp = data.sys.sunset * 1000; // Convert sunset time from Unix timestamp to milliseconds. From freecodecamp.org
 
-                    let sunrise = new Date(sunriseTimestamp).toLocaleTimeString([], {hour: '2-digit', minute:'2-digit'}); // Format sunrise time without seconds
-                    let sunset = new Date(sunsetTimestamp).toLocaleTimeString([], {hour: '2-digit', minute:'2-digit'}); // Format sunset time without seconds
+                    let sunrise = new Date(sunriseTimestamp).toLocaleTimeString([], {hour: '2-digit', minute:'2-digit'}); // Format sunrise time without seconds. Part of the code is From freecodecamp.org
+                    let sunset = new Date(sunsetTimestamp).toLocaleTimeString([], {hour: '2-digit', minute:'2-digit'}); // Format sunset time without seconds. Part of the code is From freecodecamp.org
 
                     let imageUrl;
                     let weatherHtml = ''; // a string
