@@ -1,3 +1,11 @@
+/************************************
+    File Name: weather.css
+    Purpose: Create style for the weather page
+    Author: Chris Alex
+    DrexelId: cpa49 
+**************************************/
+
+/* Style logo */
 .logo{
   height: 70px; 
   width: 70px; 
@@ -101,5 +109,13 @@ button:hover {
 .cleared {
   color: blue;
 }
+/* Image for the weather description */
+img {
+  width: 500px; 
+  height: 250px; 
+  display: block; 
+  margin: 0 auto;
+}
+
 
  
