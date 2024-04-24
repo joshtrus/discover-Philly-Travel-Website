@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- Set character encoding and viewport for responsiveness -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Place Details</title> <!-- Title of the page -->
+</head>
+<body>
+    <h1>Place Details</h1> <!-- Heading for the page -->
+    <h2>{{ place.name }}</h2> <!-- Displaying the name of the place -->
+    <p>Description: {{ place.description }}</p> <!-- Displaying the description of the place -->
+    <p>Address: {{ place.address }}</p> <!-- Displaying the address of the place -->
+    <p>Rating: {{ place.rating }}</p> <!-- Displaying the rating of the place -->
+
+    <h2>Feedback</h2> <!-- Heading for the feedback section -->
+    <!-- Form for submitting feedback -->
+    <form action="/submit_feedback" method="post">
+        <label for="feedback">Feedback:</label><br> <!-- Label for the feedback input -->
+        <textarea id="feedback" name="feedback" rows="4" cols="50"></textarea><br> <!-- Textarea for entering feedback -->
+        <label for="rating">Rating:</label><br> <!-- Label for the rating input -->
+        <input type="number" id="rating" name="rating" min="1" max="5"><br> <!-- Input for entering rating -->
+        <input type="submit" value="Submit"> <!-- Submit button -->
+    </form>
+</body>
+</html>
