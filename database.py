@@ -1,4 +1,4 @@
-from flask import Flask, render_template
+from flask import Flask, render_template, request, redirect, url_for
 import mysql.connector
 
 app = Flask(__name__, template_folder='templates')
@@ -16,7 +16,21 @@ def index():
     cursor = db.cursor()
     cursor.execute("SELECT * FROM places")
     places = cursor.fetchall()
-    return render_template('database.html',places = places)
+    return render_template('database.html', places=places)
+
+@app.route('/place/<int:place_id>')
+def place_details(place_id):
+    cursor = db.cursor()
+    cursor.execute("SELECT * FROM places WHERE id = %s", (place_id,))
+    place = cursor.fetchone()
+    return render_template('place_details.html', place=place)
+
+@app.route('/submit_feedback', methods=['POST'])
+def submit_feedback():
+    feedback = request.form['feedback']
+    rating = request.form['rating']
+    # Add code to update the database with the feedback and rating
+    return redirect(url_for('database'))
 
 if __name__ == '__main__':
     app.run(debug=True)

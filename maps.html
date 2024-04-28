@@ -1,3 +1,5 @@
+<!-- Most of the following code below has been taken from a video tutorial on Leaflet. --> 
+<!-- The Tutorial can be found here: https://www.youtube.com/watch?v=ls_Eue1xUtY --> 
 <!DOCTYPE html>
 <html lang="en">
 
@@ -8,6 +10,12 @@
 
     <!--leaflet css --> 
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="" />
+    <!--leaflet search css --> 
+    <link rel="stylesheet" href="https://unpkg.com/leaflet.pinsearch/src/Leaflet.PinSearch.css" crossorigin=""></script>
+    <!--leaflet routing css --> 
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.2.0/dist/leaflet.css" />
+    <link rel="stylesheet" href="https://unpkg.com/leaflet-routing-machine@latest/dist/leaflet-routing-machine.css" />
+
 
     <style>
         #map {
@@ -25,6 +33,11 @@
 
 <!--leaflet js --> 
 <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
+<!--leaflet search js --> 
+<script src="https://unpkg.com/leaflet.pinsearch/src/Leaflet.PinSearch.js" crossorigin=""></script>
+<!--leaflet routing js --> 
+<script src="https://unpkg.com/leaflet@1.2.0/dist/leaflet.js"></script>
+<script src="https://unpkg.com/leaflet-routing-machine@latest/dist/leaflet-routing-machine.js"></script>
 
 <script>
     // Map initialization
@@ -35,4 +48,33 @@
         attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
     });
     osm.addTo(map)
+</script>
+<script>
+    L.marker([39.9524, -75.1636], { title: "Independence Hall" }).addTo(map);
+    L.marker([39.9582, -75.1731], { title: "Franklin Institute" }).addTo(map);
+
+    // Most of the following code below has been taken from a GitHub linked on Leaflet.
+    // The Tutorial can be found here: https://github.com/MokahalA/Leaflet.PinSearch
+    var searchBar = L.control.pinSearch({
+        position: 'topright',
+        placeholder: 'Search...',
+        buttonText: 'Search',
+        onSearch: function(query) {
+            console.log('Search query:', query);
+            // Handle the search query here
+        },
+        searchBarWidth: '200px',
+        searchBarHeight: '30px',
+        maxSearchResults: 2
+    });
+    searchBar.addTo(map);
+    
+</script>
+<script>
+    L.Routing.control({
+        waypoints: [
+            L.latLng(39.9524, -75.1636),
+            L.latLng(39.9582, -75.1731)
+        ]
+    }).addTo(map);
 </script>
