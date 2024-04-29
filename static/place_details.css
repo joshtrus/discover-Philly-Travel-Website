@@ -1,0 +1,83 @@
+/* Define global styles for the body */
+body {
+    font-family: Arial, sans-serif; /* Set font family */
+    margin: 0; /* Remove default margin */
+    padding: 0; /* Remove default padding */
+    background-color: #f0f0f0; /* Set background color */
+}
+
+/* Style heading level 1 */
+h1 {
+    text-align: center; /* Center align text */
+}
+
+/* Style heading level 2 */
+h2 {
+    margin-top: 20px; /* Add top margin */
+}
+
+/* Container for place details */
+.place-details-container {
+    max-width: 600px; /* Set maximum width */
+    margin: 0 auto; /* Center align horizontally */
+    background-color: #fff; /* Set background color */
+    padding: 20px; /* Add padding */
+    border-radius: 10px; /* Add border radius */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Add box shadow */
+}
+
+/* Style place name */
+.place-name {
+    font-size: 1.5em; /* Set font size */
+    margin-bottom: 10px; /* Add bottom margin */
+}
+
+/* Style place description */
+.place-description {
+    margin-bottom: 10px; /* Add bottom margin */
+}
+
+/* Style place address */
+.place-address {
+    margin-bottom: 10px; /* Add bottom margin */
+}
+
+/* Style rating */
+.rating {
+    margin-bottom: 20px; /* Add bottom margin */
+}
+
+/* Style feedback form */
+.feedback-form {
+    margin-top: 20px; /* Add top margin */
+}
+
+/* Style feedback label */
+.feedback-form label {
+    display: block; /* Display as block element */
+    margin-bottom: 5px; /* Add bottom margin */
+}
+
+/* Style feedback input */
+.feedback-form textarea,
+.feedback-form input[type="number"],
+.feedback-form input[type="submit"] {
+    width: 100%; /* Set width to fill container */
+    padding: 10px; /* Add padding */
+    margin-bottom: 10px; /* Add bottom margin */
+    border: 1px solid #ccc; /* Add border */
+    border-radius: 5px; /* Add border radius */
+}
+
+/* Style feedback submit button */
+.feedback-form input[type="submit"] {
+    background-color: #007bff; /* Set background color */
+    color: #fff; /* Set text color */
+    cursor: pointer; /* Set cursor */
+    transition: background-color 0.3s ease; /* Add transition */
+}
+
+/* Hover effect for submit button */
+.feedback-form input[type="submit"]:hover {
+    background-color: #0056b3; /* Change background color on hover */
+}
