@@ -6,14 +6,16 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Place Details</title> <!-- Title of the page -->
     <!-- Link to the CSS file -->
-    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='place_details.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='place_details.css') }}"> 
+
 </head>
 <body>
     <h1>Place Details</h1> <!-- Heading for the page -->
-    <h2>{{ place.name }}</h2> <!-- Displaying the name of the place -->
-    <p>Description: {{ place.description }}</p> <!-- Displaying the description of the place -->
-    <p>Address: {{ place.address }}</p> <!-- Displaying the address of the place -->
-    <p>Rating: {{ place.rating }}</p> <!-- Displaying the rating of the place -->
+    <h2>{{ place['name'] }}</h2> <!-- Displaying the name of the place -->
+    <img src="{{ place['image_url'] }}" alt="{{ place['name'] }}" class="place-image"> <!-- Displaying the image of the place -->
+    <p>Description: {{ place['description'] }}</p> <!-- Displaying the description of the place -->
+    <p>Address: {{ place['address'] }}</p> <!-- Displaying the address of the place -->
+    <p>Rating: {{ place['rating'] }}</p> <!-- Displaying the rating of the place -->
 
     <h2>Feedback</h2> <!-- Heading for the feedback section -->
     <!-- Form for submitting feedback -->
