@@ -140,6 +140,14 @@ html{
      height: 99vh;
 }
 
+.reviews h1{
+  font-size: 400%;
+  color: black; 
+  text-align: center;
+  font-family: Georgia, 'Times New Roman', Times, serif;
+  margin: 0;
+}
+
 .box {
   display: inline-block;
   width: 300px; /* Width of the boxes */
