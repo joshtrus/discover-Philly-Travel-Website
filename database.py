@@ -23,7 +23,19 @@ def place_details(place_id):
     cursor = db.cursor()
     cursor.execute("SELECT * FROM places WHERE id = %s", (place_id,))
     place = cursor.fetchone()
-    return render_template('place_details.html', place=place)
+    if place:
+        place_dict = {
+            'id': place[0],
+            'name': place[1],
+            'description': place[2],
+            'image_url': place[3],
+            'address': place[4],
+            'rating': place[5]
+        }
+        return render_template('place_details.html', place=place_dict)
+    else:
+        return "Place not found"
+
 
 @app.route('/submit_feedback', methods=['POST'])
 def submit_feedback():
