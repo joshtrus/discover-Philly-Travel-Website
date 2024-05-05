@@ -1,3 +1,9 @@
+<!-- --------------------------------------------------------------------------------
+    Name: trivia.html
+    Purpose: Design trivia page while adding functionality so users can answer questions about Philly
+    Author: Chris Alex
+    DrexelId: cpa49  
+------------------------------------------------------------------------------------->
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -5,31 +11,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="css/weather.css">
     <title>Philadelphia Trivia</title>
-    <style>
-        .logo{
-         height: 70px; 
-        width: 70px; 
- }
-        ul {
-        list-style-type: none;
-        margin: 0;
-        padding: 0;
-        overflow: hidden;
-        background-color: #333;
- }
- 
-        li {
-        float: left;
-}
-        li a {
-        display: block;
-        color: white;
-        text-align: center;
-        padding: 14px 16px;
-        text-decoration: none;
-        width: 300px;
- }
-    </style>
 </head>
 <body>
     <nav> 
@@ -42,7 +23,7 @@
         </ul>
     </nav>
 
-    <h1>Philadelphia Trivia </h1>
+    <h1>Philadelphia Trivia</h1>
 
     <div class="quiz-container">
         <div class="question" id="question"></div>
@@ -57,7 +38,7 @@
         // These are the questions for the trivia page
         const questions = [
             {
-                question: "Where do I go to watch 76ers games'?",
+                question: "Where do I go to watch 76ers games?",
                 options: ["Wells Fargo Center", "TD Garden", "Lincoln Field Center", "MetLife Stadium"],
                 answer: "a"
             },
@@ -104,7 +85,7 @@
             {
                 question: "Which street is in between 13th and 15th street?",
                 options: ["Callowhill Street", "14th Street", "Broad Street", "Race Street"],
-                answer: "b"
+                answer: "c"
             },
             {
                 question: "Where can I find Parx Casino, Philadelphia's #1 casino in?",
@@ -129,7 +110,7 @@
                 optionElement.type = "radio";
                 optionElement.name = "answer";
                 optionElement.value = index; // Assign value as index to identify the selected option
-                optionElement.addEventListener('change', () => checkAnswer(parseInt(optionElement.value))); /
+                optionElement.addEventListener('change', () => checkAnswer(parseInt(optionElement.value)));
                 const label = document.createElement('label');
                 label.innerText = option;
                 optionsContainer.appendChild(optionElement);
@@ -140,21 +121,20 @@
 
         //check answer function
         function checkAnswer(index) {
-    const currentQuestion = questions[currentQuestionIndex];
-    const selectedOption = currentQuestion.options[index];
-    const correctOptionIndex = currentQuestion.answer.charCodeAt(0) - 97; // Converts 'a', 'b', 'c', 'd' to 0, 1, 2, 3. From ChatGPT
-    const correctOption = currentQuestion.options[correctOptionIndex];
+            const currentQuestion = questions[currentQuestionIndex];
+            const selectedOption = currentQuestion.options[index];
+            const correctOptionIndex = currentQuestion.answer.charCodeAt(0) - 97; // Converts 'a', 'b', 'c', 'd' to 0, 1, 2, 3. From ChatGPT
+            const correctOption = currentQuestion.options[correctOptionIndex];
 
-    if (selectedOption === correctOption) {
-        alert('Correct!');
-        correctAnswers++;
-    } else {
-        alert(`Incorrect! The correct answer is: ${correctOption}`);
-    }
+            if (selectedOption === correctOption) {
+                alert('Correct!');
+                correctAnswers++;
+            } else {
+                alert(`Incorrect! The correct answer is: ${correctOption}`);
+            }
 
-    nextQuestion();
-}
-        
+            nextQuestion();
+        }
 
         //next question
         function nextQuestion() {
@@ -178,9 +158,8 @@
             displayQuestion();
         }
 
-        // Display the first question when the page loads
+        // Display the first question when the page loads/reloads
         displayQuestion();
   
     </script>
 </body>
-</html>
