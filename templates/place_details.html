@@ -1,3 +1,5 @@
+<!-- place_details.html -->
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -7,7 +9,6 @@
     <title>Place Details</title> <!-- Title of the page -->
     <!-- Link to the CSS file -->
     <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='place_details.css') }}"> 
-
 </head>
 <body>
     <h1>Place Details</h1> <!-- Heading for the page -->
@@ -17,14 +18,26 @@
     <p>Address: {{ place['address'] }}</p> <!-- Displaying the address of the place -->
     <p>Rating: {{ place['rating'] }}</p> <!-- Displaying the rating of the place -->
 
-    <h2>Feedback</h2> <!-- Heading for the feedback section -->
     <!-- Form for submitting feedback -->
     <form action="/submit_feedback" method="post">
         <label for="feedback">Feedback:</label><br> <!-- Label for the feedback input -->
         <textarea id="feedback" name="feedback" rows="4" cols="50"></textarea><br> <!-- Textarea for entering feedback -->
         <label for="rating">Rating:</label><br> <!-- Label for the rating input -->
         <input type="number" id="rating" name="rating" min="1" max="5"><br> <!-- Input for entering rating -->
+        <input type="hidden" name="place_id" value="{{ place['id'] }}"> <!-- Hidden input for place_id -->
         <input type="submit" value="Submit"> <!-- Submit button -->
     </form>
+
+    <!-- Display feedback and ratings -->
+    <h2>Feedback</h2>
+    {% if place_feedback %}
+        <ul>
+            {% for feedback_item in place_feedback %}
+                <li>{{ feedback_item['feedback'] }} - Rating: {{ feedback_item['rating'] }}</li>
+            {% endfor %}
+        </ul>
+    {% else %}
+        <p>No feedback yet. Be the first to leave feedback!</p>
+    {% endif %}
 </body>
 </html>
