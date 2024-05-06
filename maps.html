@@ -135,6 +135,11 @@
     // The following code has been taken from a tutorial, hosted by Liedman.net.
     // The Website can be found here: https://www.liedman.net/leaflet-routing-machine/
     // The Geocode API: https://github.com/perliedman/leaflet-control-geocoder#igeocoder
+    // Lines 140-141 and 150-156 are modified from a tutorial: https://www.youtube.com/watch?v=6mAdRdwZihc
+
+    var carIcon = L.icon({iconUrl: "images/carEmoji.png", iconSize: [30,30]})
+    var marker = L.marker([0.0000, 0.0000], {icon: carIcon}).addTo(map);
+
     L.Routing.control({
     waypoints: [
             L.latLng(39.9524, -75.1636),
@@ -143,29 +148,10 @@
     routeWhileDragging: true,
     geocoder: L.Control.Geocoder.nominatim()
     }).on("routesfound", function (e) {
-        console.log(e)
         e.routes[0].coordinates.forEach(function(coord, index){
             setTimeout(() => {
                 marker.setLatLng([coord.lat, coord.lng])
             }, 100 * index);
         })
     }).addTo(map);
-</script>
-<script>
-    map.on("click", function(e) {
-        L.Routing.control({
-            waypoints: [
-                L.latLng(39.9524, -75.1636),
-                L.latLng(39.9582, -75.1731)
-            ]
-        }).on("routesfound", function(e){
-            console.log(e)
-            e.routes[0].coordinates.forEach(function(coord, index){
-                setTimeout(() => {
-                    marker.setLatLng([coord.lat, coord.lng])
-                }, 100 * index);
-            })
-        })
-        .addTo(map)
-    })
 </script>
