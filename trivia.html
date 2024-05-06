@@ -1,3 +1,9 @@
+<!-- --------------------------------------------------------------------------------
+    Name: trivia.html
+    Purpose: Design trivia page while adding functionality so users can answer questions about Philly
+    Author: Chris Alex
+    DrexelId: cpa49  
+------------------------------------------------------------------------------------->
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -5,31 +11,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="css/weather.css">
     <title>Philadelphia Trivia</title>
-    <style>
-        .logo{
-         height: 70px; 
-        width: 70px; 
- }
-        ul {
-        list-style-type: none;
-        margin: 0;
-        padding: 0;
-        overflow: hidden;
-        background-color: #333;
- }
- 
-        li {
-        float: left;
-}
-        li a {
-        display: block;
-        color: white;
-        text-align: center;
-        padding: 14px 16px;
-        text-decoration: none;
-        width: 300px;
- }
-    </style>
 </head>
 <body>
     <nav> 
@@ -44,16 +25,20 @@
 
     <h1>Philadelphia Trivia</h1>
 
-    <!--JS functionality for the questions will be done in the future-->
-    <div class="question" id="question"></div>
-    <div class="options" id="options"></div>
-    <button onclick="checkAnswer()">Next Question</button>
+    <div class="quiz-container">
+        <div class="question" id="question"></div>
+        <div class="options" id="options"></div>
+        <div class="quiz-actions">
+            <button onclick="nextQuestion()">Next Question</button>
+            <button onclick="resetQuiz()">Reset Quiz</button>
+        </div>
+    </div>
 
     <script>
-        //these are the questions for the trivia page
+        // These are the questions for the trivia page
         const questions = [
             {
-                question: "Where do I go to watch 76ers games'?",
+                question: "Where do I go to watch 76ers games?",
                 options: ["Wells Fargo Center", "TD Garden", "Lincoln Field Center", "MetLife Stadium"],
                 answer: "a"
             },
@@ -83,7 +68,7 @@
                 answer: "d"
             },
             {
-                question: "An interactive science and technology musemum that is good for kids",
+                question: "An interactive science and technology museum that is good for kids",
                 options: ["Pennsylvania Convention Center", "Franklin Institute", "National Constitutional Center", "Penn's Landing"],
                 answer: "b"
             },
@@ -93,19 +78,88 @@
                 answer: "c"
             },
             {
-                question: "What is Philadelphia's government/muncipal building called?",
+                question: "What is Philadelphia's government/municipal building called?",
                 options: ["City Hall", "White House", "Frankford", "Mayor Office"],
                 answer: "a"
             },
             {
                 question: "Which street is in between 13th and 15th street?",
                 options: ["Callowhill Street", "14th Street", "Broad Street", "Race Street"],
-                answer: "b"
+                answer: "c"
             },
             {
                 question: "Where can I find Parx Casino, Philadelphia's #1 casino in?",
                 options: ["Philadelphia", "Upper Darby", "Chester", "Bensalem"],
                 answer: "d"
-            },     
+            }
         ];
-    
+        let currentQuestionIndex = 0;
+        let correctAnswers = 0;
+
+        function displayQuestion() {
+            const currentQuestion = questions[currentQuestionIndex];
+            const questionElement = document.getElementById('question');
+            const optionsContainer = document.getElementById('options');
+
+            questionElement.innerText = currentQuestion.question;
+            optionsContainer.innerHTML = ''; // Clear previous options
+
+            //Makes the options a radio button. From Geeksforgreeks.org
+            currentQuestion.options.forEach((option, index) => {
+                const optionElement = document.createElement('input');
+                optionElement.type = "radio";
+                optionElement.name = "answer";
+                optionElement.value = index; // Assign value as index to identify the selected option
+                optionElement.addEventListener('change', () => checkAnswer(parseInt(optionElement.value)));
+                const label = document.createElement('label');
+                label.innerText = option;
+                optionsContainer.appendChild(optionElement);
+                optionsContainer.appendChild(label);
+                optionsContainer.appendChild(document.createElement('br')); // Add line break between options
+            });
+        }
+
+        //check answer function
+        function checkAnswer(index) {
+            const currentQuestion = questions[currentQuestionIndex];
+            const selectedOption = currentQuestion.options[index];
+            const correctOptionIndex = currentQuestion.answer.charCodeAt(0) - 97; // Converts 'a', 'b', 'c', 'd' to 0, 1, 2, 3. From ChatGPT
+            const correctOption = currentQuestion.options[correctOptionIndex];
+
+            if (selectedOption === correctOption) {
+                alert('Correct!');
+                correctAnswers++;
+            } else {
+                alert(`Incorrect! The correct answer is: ${correctOption}`);
+            }
+
+            nextQuestion();
+        }
+
+        //next question
+        function nextQuestion() {
+            currentQuestionIndex++;
+            if (currentQuestionIndex < questions.length) {
+                displayQuestion();
+            } else {
+                displayScore();
+            }
+        }
+
+        //Displays Score at the end of the quiz
+        function displayScore() {
+            alert(`Your score: ${correctAnswers}/${questions.length}`);
+        }
+
+        //Resets quiz
+        function resetQuiz() {
+            currentQuestionIndex = 0;
+            correctAnswers = 0;
+            displayQuestion();
+        }
+
+        // Display the first question when the page loads/reloads
+        displayQuestion();
+  
+    </script>
+</body>
