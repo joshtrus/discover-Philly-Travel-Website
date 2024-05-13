@@ -79,9 +79,9 @@
   }
 /* Style all font awesome icons */
 .fa {
-    padding: 20px;
+    padding: 10px;
     font-size: 30px;
-    width: 50px;
+    width: 30px;
     text-align: center;
     text-decoration: none;
   }
@@ -94,6 +94,12 @@
   /* Twitter */
   .fa-twitter {
     background: #55ACEE;
+    color: white;
+  }
+
+  /* Twitter */
+  .fa-globe {
+    background: #6cc38d;
     color: white;
   }
 /* Modified from: https://github.com/mukulkant/Star-rating-using-pure-css */
