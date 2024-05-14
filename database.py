@@ -1,7 +1,10 @@
-from flask import Flask, render_template, request, redirect, url_for
+# database.py
+
+from flask import Flask, render_template, request, redirect, url_for, session
 import mysql.connector
 
 app = Flask(__name__, template_folder='templates')
+app.secret_key = 'phillyTravel'  # Set a secret key for session management
 
 # Connect to MySQL database
 db = mysql.connector.connect(
@@ -23,6 +26,7 @@ def place_details(place_id):
     cursor = db.cursor()
     cursor.execute("SELECT * FROM places WHERE id = %s", (place_id,))
     place = cursor.fetchone()
+    
     if place:
         place_dict = {
             'id': place[0],
@@ -32,7 +36,13 @@ def place_details(place_id):
             'address': place[4],
             'rating': place[5]
         }
-        return render_template('place_details.html', place=place_dict)
+        
+        # Fetch feedback and ratings for the specific place from session
+        place_feedback = session.get(f'feedbacks_{place_id}', [])
+        
+        print("Feedback data:", place_feedback)  # Debugging statement
+        
+        return render_template('place_details.html', place=place_dict, place_feedback=place_feedback)
     else:
         return "Place not found"
 
@@ -41,8 +51,24 @@ def place_details(place_id):
 def submit_feedback():
     feedback = request.form['feedback']
     rating = request.form['rating']
-    # Add code to update the database with the feedback and rating
-    return redirect(url_for('database'))
+    place_id = request.form['place_id']
+    
+    # Ensure 'feedbacks' key exists in session and is a list
+    feedback_key = f'feedbacks_{place_id}'
+    if feedback_key not in session:
+        session[feedback_key] = []
+    
+    # Retrieve existing feedback list from session
+    place_feedback = session[feedback_key]
+    
+    # Append new feedback and rating to the list
+    place_feedback.append({'feedback': feedback, 'rating': rating})
+    
+    # Update session with the modified feedback list
+    session[feedback_key] = place_feedback
+    
+    return redirect(url_for('place_details', place_id=place_id))
+
 
 if __name__ == '__main__':
     app.run(debug=True)
