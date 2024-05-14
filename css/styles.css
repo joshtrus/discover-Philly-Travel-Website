@@ -106,7 +106,7 @@ html{
 
 /*The code for the pill button style comes from @dcode on YouTube */ 
   .pill {
-    font-size: 20px;
+    font-size: 22px;
     font-family: 'Readex Pro', sans-serif;
     padding: 1em 6em;
     margin: 0.25em;
@@ -168,9 +168,28 @@ html{
   margin-top: 10px;
 }
 
+.quotation {
+  align-self: flex-start;
+}
+
 .name {
   margin-top: 5px;
   font-size: 14px;
+}
+
+.content {
+  padding-bottom: 70%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.content p{
+  font-size: 20px;
+  color: black; 
+  text-align: center;
+  font-family: Georgia, 'Times New Roman', Times, serif;
+  margin: 0;
 }
 
  .body {
