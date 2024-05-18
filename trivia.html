@@ -106,7 +106,8 @@
             }
         ];
         let currentQuestionIndex = 0;
-        let correctAnswers = 0;
+        let rightAnswers = 0;
+        let attempts = 0;
 
         function displayQuestion() {
             const currentQuestion = questions[currentQuestionIndex];
@@ -140,13 +141,27 @@
             const correctOptionIndex = currentQuestion.answer.charCodeAt(0) - 97; // Converts 'a', 'b', 'c', 'd' to 0, 1, 2, 3. From ChatGPT
             const correctOption = currentQuestion.options[correctOptionIndex];
 
+            //Points attempt Feature. If wrong, one more attempt is given. If answer is right in second attempt, 1/2 credit is given. 
             if (selectedOption === correctOption) {
-                alert('Correct!');
-                correctAnswers++;
+                if (attempts === 0) { 
+                    alert('Correct!');
+                    rightAnswers++;
+                } else if (attempts === 1) {
+                    alert('Correct. 1/2 credit is given');
+                    rightAnswers += 0.5; 
+                }
             } else {
-                alert(`Incorrect! The correct answer is: ${correctOption}`);
+                //Answer attempts feature
+                if (attempts === 0) { // First attempt
+                    alert('Incorrect! You have one more attempt.');
+                    attempts++; 
+                    return; //  second attempt
+                } else if (attempts === 1) { // Second attempt
+                    alert(`Incorrect! The correct answer is: ${correctOption}`);
+                }
             }
 
+            attempts = 0; // Reset attempts after each question
             nextQuestion();
         }
 
@@ -162,13 +177,14 @@
 
         //Displays Score at the end of the quiz
         function displayScore() {
-            alert(`Your score: ${correctAnswers}/${questions.length}`);
+            alert(`Your score: ${rightAnswers}/${questions.length}`);
         }
 
         //Resets quiz
         function resetQuiz() {
             currentQuestionIndex = 0;
-            correctAnswers = 0;
+            rightAnswers = 0;
+            attempts = 0; 
             displayQuestion();
         }
 
