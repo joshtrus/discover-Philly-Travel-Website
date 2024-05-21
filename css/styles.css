@@ -264,3 +264,25 @@ html{
   padding: 0%;
   height: 99vh;
 }
+
+.randomTrip-container{
+  margin-top: 30%;
+  margin-left: 20%;
+  margin-right: 20%;
+}
+
+.randomTrip-container h1{
+  font-size: 350%;
+  color: white; 
+  text-align: left;
+  font-family: Georgia, 'Times New Roman', Times, serif;
+  margin-bottom: 7%;
+}
+
+.randomTrip-container p{
+  font-size: 150%;
+  color: white; 
+  text-align: left;
+  font-family: Georgia, 'Times New Roman', Times, serif;
+  margin-bottom: 15%;
+}
