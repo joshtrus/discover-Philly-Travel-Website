@@ -1,10 +1,10 @@
-"""
-test_database.py
 
-This Flask application is created for testing purposes. It serves a simple homepage and a 
-database page that displays places to visit in Philadelphia. The application connects to 
-a MySQL database to fetch data and includes routes for serving static files and images.
-"""
+#test_database.py
+
+#This Flask application is created for testing purposes. It serves a simple homepage and a 
+#database page that displays places to visit in Philadelphia. The application connects to 
+#a MySQL database to fetch data and includes routes for serving static files and images.
+
 
 from flask import Flask, render_template, request, redirect, url_for, session, send_from_directory
 import mysql.connector
