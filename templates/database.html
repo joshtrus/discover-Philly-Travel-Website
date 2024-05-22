@@ -7,8 +7,6 @@
     
     <!-- Link to your CSS file -->
     <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='database.css') }}">
-
-
 </head>
 <body>
     <h1>Places to Visit in Philadelphia</h1>
@@ -21,6 +19,7 @@
                 <p class="place-description">{{ place[2] }}</p> <!-- Description -->
                 <p class="place-address"><strong>Address:</strong> {{ place[4] }}</p> <!-- Address -->
                 <p class="rating"><strong>Rating:</strong> {{ place[5] }}</p> <!-- Rating -->
+                <a href="{{ url_for('place_details', place_id=place[0]) }}"><button>View Details</button></a>
             </div>
         </li>
     {% endfor %}
