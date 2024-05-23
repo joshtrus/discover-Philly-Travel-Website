@@ -82,7 +82,7 @@ h1 {
     padding: 8px 15px;
     font-size: 1em;
     border: none;
-    background-color: #4ca728;
+    background-color: mediumpurple;
     color: white;
     cursor: pointer;
     transition: background-color 0.3s ease;
@@ -96,4 +96,9 @@ h1 {
     margin-right: 10px;
     border-radius: 4px;
     cursor: pointer;
+}
+#modeIndicator {
+    color: blue;
+    text-align: center;
+   
 }
