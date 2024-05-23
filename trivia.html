@@ -20,28 +20,31 @@
             <li><a href="database.html">Places</a></li>
             <li><a href="random.html">Random Trip</a></li>
             <li><a href="weather.html">Weather</a></li>
-	        <li><a href="maps.html">Maps</a></li>
+            <li><a href="maps.html">Maps</a></li>
         </ul>
     </nav>
 
     <h1>Philadelphia Trivia</h1>
 
     <div class="quiz-container">
-    <div class="question" id="question"></div>
-    <div id="image-container"></div>
-    <div class="options" id="options"></div>
-    <div class="quiz-actions">
-        <button onclick="nextQuestion()">Next Question</button>
-        <button onclick="resetQuiz()">Reset Quiz</button>
+        <div id="modeIndicator"></div> <!-- Displays the selected mode -->
+        <div class="question" id="question"></div>
+        <div id="image-container"></div>
+        <div id="timer"></div>
+        <div class="options" id="options"></div>
+        <div class="quiz-actions">
+            <button onclick="nextQuestion()">Next Question</button>
+            <button onclick="setMode('easy')" id="easyMode">Easy Mode</button>
+            <button onclick="setMode('difficult')" id="difficultMode">Difficult Mode</button>
+            <button onclick="resetQuiz()">Reset Quiz</button>
+        </div>
     </div>
-</div>
 
     <script>
-        // These are the questions for the trivia page
         const questions = [
             {
                 question: "Where do I go to watch 76ers games?",
-                image: "images/Wells_Fargo_Center.jpg",
+                image: "images/Wells.jpg",
                 options: ["Wells Fargo Center", "TD Garden", "Lincoln Field Center", "MetLife Stadium"],
                 answer: "a"
             },
@@ -106,67 +109,89 @@
                 answer: "d"
             }
         ];
+
         let currentQuestionIndex = 0;
-        let rightAnswers = 0;
+        let correctAnswers = 0;
         let attempts = 0;
+        let mode = 'easy'; // Default mode is set to easy
+        let timer;
+        let timeLeft;
 
         function displayQuestion() {
             const currentQuestion = questions[currentQuestionIndex];
             const questionElement = document.getElementById('question');
-            const imageContainer = document.getElementById('image-container'); // Get the image container
+            const imageContainer = document.getElementById('image-container');
             const optionsContainer = document.getElementById('options');
+            const timerElement = document.getElementById('timer');
 
             questionElement.innerText = currentQuestion.question;
-            imageContainer.innerHTML = `<img src="${currentQuestion.image}" alt="Question Image">`; // Add the image
-            optionsContainer.innerHTML = ''; // Clear previous options
+            imageContainer.innerHTML = `<img src="${currentQuestion.image}" alt="Question Image">`;
+            optionsContainer.innerHTML = '';
 
-            //Makes the options a radio button. From Geeksforgreeks.org
             currentQuestion.options.forEach((option, index) => {
                 const optionElement = document.createElement('input');
                 optionElement.type = "radio";
                 optionElement.name = "answer";
-                optionElement.value = index; // Assign value as index to identify the selected option
+                optionElement.value = index;
                 optionElement.addEventListener('change', () => checkAnswer(parseInt(optionElement.value)));
                 const label = document.createElement('label');
                 label.innerText = option;
                 optionsContainer.appendChild(optionElement);
                 optionsContainer.appendChild(label);
-                optionsContainer.appendChild(document.createElement('br')); // Add line break between options
+                optionsContainer.appendChild(document.createElement('br'));
             });
+
+            // Timer for difficult mode
+            if (mode === 'difficult') {
+                timeLeft = 10; //  in seconds
+                timerElement.innerText = `Time left: ${timeLeft} seconds`;
+                clearInterval(timer); // Clear timer
+                timer = setInterval(() => {
+                    timeLeft--;
+                    timerElement.innerText = `Time left: ${timeLeft} seconds`;
+                    if (timeLeft <= 0) {
+                        clearInterval(timer); 
+                        alert("Time's up!");
+                        nextQuestion(); 
+                    }
+                }, 1000); // Updates the timer every second
+            } else {
+                
+                clearInterval(timer);
+                timerElement.innerText = ''; 
+            }
+
+            // Update mode indicator for the html display
+            document.getElementById('modeIndicator').innerText = `Mode: ${mode === 'easy' ? 'Easy' : 'Difficult'}`;
         }
 
-        //check answer function
         function checkAnswer(index) {
             const currentQuestion = questions[currentQuestionIndex];
             const selectedOption = currentQuestion.options[index];
             const correctOptionIndex = currentQuestion.answer.charCodeAt(0) - 97; // Converts 'a', 'b', 'c', 'd' to 0, 1, 2, 3. From ChatGPT
             const correctOption = currentQuestion.options[correctOptionIndex];
 
-            //Points attempt Feature. If wrong, one more attempt is given. If answer is right in second attempt, 1/2 credit is given. 
             if (selectedOption === correctOption) {
-                if (attempts === 0) { 
-                    alert('Correct!');
-                    rightAnswers++;
-                } else if (attempts === 1) {
-                    alert('Correct. 1/2 credit is given');
-                    rightAnswers += 0.5; 
+                if (mode === 'easy' && attempts === 1) {
+                    correctAnswers += 0.5; // 1/2 credit given for right answer in second attempt
+                } else {
+                    correctAnswers++; 
                 }
+                alert('Correct!');
             } else {
-                //Answer attempts feature
-                if (attempts === 0) { // First attempt
+                if (mode === 'easy' && attempts === 0) { // For easy mode, allow two attempts
+                    attempts++;
                     alert('Incorrect! You have one more attempt.');
-                    attempts++; 
-                    return; //  second attempt
-                } else if (attempts === 1) { // Second attempt
-                    alert(`Incorrect! The correct answer is: ${correctOption}`);
+                    return;
                 }
+                alert(`Incorrect! The correct answer is: ${correctOption}`);
             }
 
-            attempts = 0; // Reset attempts after each question
+            attempts = 0; 
+            clearInterval(timer); 
             nextQuestion();
         }
 
-        //next question
         function nextQuestion() {
             currentQuestionIndex++;
             if (currentQuestionIndex < questions.length) {
@@ -176,22 +201,30 @@
             }
         }
 
-        //Displays Score at the end of the quiz
         function displayScore() {
-            alert(`Your score: ${rightAnswers}/${questions.length}`);
+            alert(`Your score: ${correctAnswers}/${questions.length}`);
         }
 
-        //Resets quiz
         function resetQuiz() {
             currentQuestionIndex = 0;
-            rightAnswers = 0;
-            attempts = 0; 
+            correctAnswers = 0;
+            attempts = 0;
+            clearInterval(timer); 
             displayQuestion();
+        }
+
+        function setMode(selectedMode) {
+            mode = selectedMode;
+            // Reset the mode buttons style
+            document.getElementById('easyMode').classList.remove('selected-mode');
+            document.getElementById('difficultMode').classList.remove('selected-mode');
+            // Add selected style to the clicked mode button
+            document.getElementById(selectedMode + 'Mode').classList.add('selected-mode');
+            resetQuiz(); // Reset the quiz when mode changes
         }
 
         // Display the first question when the page loads/reloads
         displayQuestion();
-  
     </script>
 </body>
 </html>
