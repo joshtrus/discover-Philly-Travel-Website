@@ -41,6 +41,7 @@
     </div>
 
     <script>
+        //Questions for the trivia page  
         const questions = [
             {
                 question: "Where do I go to watch 76ers games?",
@@ -126,8 +127,9 @@
 
             questionElement.innerText = currentQuestion.question;
             imageContainer.innerHTML = `<img src="${currentQuestion.image}" alt="Question Image">`;
-            optionsContainer.innerHTML = '';
+            optionsContainer.innerHTML = ''; //clear previous option
 
+            //Makes the options a radio button. From Geeksforgreeks.org
             currentQuestion.options.forEach((option, index) => {
                 const optionElement = document.createElement('input');
                 optionElement.type = "radio";
@@ -171,6 +173,7 @@
             const correctOptionIndex = currentQuestion.answer.charCodeAt(0) - 97; // Converts 'a', 'b', 'c', 'd' to 0, 1, 2, 3. From ChatGPT
             const correctOption = currentQuestion.options[correctOptionIndex];
 
+            //Answer attempts feature
             if (selectedOption === correctOption) {
                 if (mode === 'easy' && attempts === 1) {
                     correctAnswers += 0.5; // 1/2 credit given for right answer in second attempt
@@ -192,6 +195,7 @@
             nextQuestion();
         }
 
+        //Next question
         function nextQuestion() {
             currentQuestionIndex++;
             if (currentQuestionIndex < questions.length) {
@@ -201,10 +205,12 @@
             }
         }
 
+        //Displays score at end of quiz
         function displayScore() {
             alert(`Your score: ${correctAnswers}/${questions.length}`);
         }
 
+        //Rests quiz
         function resetQuiz() {
             currentQuestionIndex = 0;
             correctAnswers = 0;
