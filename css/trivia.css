@@ -102,3 +102,6 @@ h1 {
     text-align: center;
    
 }
+#timer.less-than-5 {
+    color: red; /* Apply red color when timer is less than 5 seconds */
+}
