@@ -5,7 +5,6 @@
 #database page that displays places to visit in Philadelphia. The application connects to 
 #a MySQL database to fetch data and includes routes for serving static files and images.
 
-
 from flask import Flask, render_template, request, redirect, url_for, session, send_from_directory
 import mysql.connector
 import os
@@ -33,6 +32,26 @@ def database():
     cursor.execute("SELECT * FROM places")
     places = cursor.fetchall()
     return render_template('database.html', places=places)
+
+@app.route('/maps')
+def maps():
+    """Serve the maps page."""
+    return send_from_directory('.', 'maps.html')
+
+@app.route('/random')
+def random():
+    """Serve the random trip page."""
+    return send_from_directory('.', 'random.html')
+
+@app.route('/weather')
+def weather():
+    """Serve the weather page."""
+    return send_from_directory('.', 'weather.html')
+
+@app.route('/trivia')
+def trivia():
+    """Serve the trivia page."""
+    return send_from_directory('.', 'trivia.html')
 
 @app.route('/place/<int:place_id>')
 def place_details(place_id):
@@ -92,6 +111,11 @@ def serve_image(filename):
 def serve_css(filename):
     """Serve CSS files."""
     return send_from_directory('css', filename)
+
+@app.route('/js/<path:filename>')
+def serve_js(filename):
+    """Serve JavaScript files."""
+    return send_from_directory('js', filename)
 
 @app.route('/static/<path:filename>')
 def serve_static(filename):
