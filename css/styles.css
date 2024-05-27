@@ -303,7 +303,7 @@ html{
 
 .skyline{
   margin:auto;
-  height: 80vh;
+  height: 82vh;
   background-image: url(/images/skyline.png);
   padding: 5%
 }
@@ -322,4 +322,19 @@ html{
 .empty-star {
   font-size: 2.5em;
   color: lightgray;
+}
+
+.skyline-content{
+  width: 900px;
+  height: 100px;
+}
+.skyline-content h1{
+  font-size: 400%;
+  color: white; 
+  text-align: left;
+  font-family: 'Agrandir', "Times New Roman" , Times, serif;
+  margin-top: 8%;
+  margin-left: 8%;
+
+
 }
