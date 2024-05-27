@@ -173,10 +173,10 @@ html{
 }
 
 .icon {
-  width: 50px;
-  height: 50px;
+  width: 70px;
+  height: 70px;
   border-radius: 50%;
-  margin-top: 10px;
+  margin-top: 20%;
 }
 
 .quotation {
@@ -184,8 +184,8 @@ html{
 }
 
 .name {
-  margin-top: 5px;
-  font-size: 14px;
+  margin-top: 2px;
+  font-size: 18px;
 }
 
 .content {
@@ -197,11 +197,13 @@ html{
 }
 
 .content p{
-  font-size: 230%;
+  font-size: 140%;
   color: black; 
   text-align: center;
   font-family: Georgia, 'Times New Roman', Times, serif;
   margin: 0;
+  margin-top: 15%;
+  margin-bottom: 15%;
 }
 
  .body {
@@ -297,4 +299,27 @@ html{
   text-align: left;
   font-family: "open sauce", 'Times New Roman', Times, serif;
   margin-bottom: 15%;
+}
+
+.skyline{
+  margin:auto;
+  height: 80vh;
+  background-image: url(/images/skyline.png);
+  padding: 5%
+}
+
+.star-rating {
+  display: flex;
+  gap: 5px;
+  padding-left: 13%;
+}
+
+.star {
+  font-size:2.5em;
+  color: green;
+}
+
+.empty-star {
+  font-size: 2.5em;
+  color: lightgray;
 }
