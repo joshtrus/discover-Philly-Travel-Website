@@ -338,3 +338,11 @@ html{
 
 
 }
+
+.slideshow{
+  margin:auto;
+  height: 82vh;
+  background-color: #214D45;  
+  padding: 5%;
+
+}
