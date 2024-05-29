@@ -7,7 +7,7 @@
 const questions = [
     {
         question: "Where do I go to watch 76ers games?",
-        image: "images/Wells.jpg",
+        image: "images/Wells_Fargo_Center.jpg",
         options: ["Wells Fargo Center", "TD Garden", "Lincoln Field Center", "MetLife Stadium"],
         answer: "a"
     },
