@@ -5,9 +5,10 @@
 #database page that displays places to visit in Philadelphia. The application connects to 
 #a MySQL database to fetch data and includes routes for serving static files and images.
 
-from flask import Flask, render_template, request, redirect, url_for, session, send_from_directory
+from flask import Flask, render_template, jsonify, request, redirect, url_for, session, send_from_directory
 import mysql.connector
 import os
+import random
 
 app = Flask(__name__, template_folder='templates', static_folder='static')
 app.secret_key = 'phillyTravel'  # Set a secret key for session management
@@ -23,7 +24,7 @@ db = mysql.connector.connect(
 @app.route('/')
 def serve_index():
     """Serve the homepage."""
-    return send_from_directory('.', 'test_index.html')
+    return send_from_directory('.', 'index.html')
 
 @app.route('/database')
 def database():
@@ -39,7 +40,7 @@ def maps():
     return send_from_directory('.', 'maps.html')
 
 @app.route('/random')
-def random():
+def random_page():
     """Serve the random trip page."""
     return send_from_directory('.', 'random.html')
 
@@ -52,6 +53,25 @@ def weather():
 def trivia():
     """Serve the trivia page."""
     return send_from_directory('.', 'trivia.html')
+
+@app.route('/random_place')
+def random_place():
+    cursor = db.cursor()
+    cursor.execute("SELECT * FROM places")
+    places = cursor.fetchall()
+    if places:
+        place = random.choice(places)
+        place_dict = {
+            'id': place[0],
+            'name': place[1],
+            'description': place[2],
+            'image_url': place[3],
+            'address': place[4],
+            'rating': place[5]
+        }
+        return jsonify({'place': place_dict})
+    else:
+        return jsonify({'error': 'No places found'}), 404
 
 @app.route('/place/<int:place_id>')
 def place_details(place_id):
