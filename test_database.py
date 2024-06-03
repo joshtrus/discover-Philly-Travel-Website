@@ -1,13 +1,15 @@
 
 #test_database.py
+#Author: Sahil Adhikari, sa3933
 
 #This Flask application is created for testing purposes. It serves a simple homepage and a 
 #database page that displays places to visit in Philadelphia. The application connects to 
 #a MySQL database to fetch data and includes routes for serving static files and images.
 
-from flask import Flask, render_template, request, redirect, url_for, session, send_from_directory
+from flask import Flask, render_template, jsonify, request, redirect, url_for, session, send_from_directory
 import mysql.connector
 import os
+import random
 
 app = Flask(__name__, template_folder='templates', static_folder='static')
 app.secret_key = 'phillyTravel'  # Set a secret key for session management
@@ -22,12 +24,12 @@ db = mysql.connector.connect(
 
 @app.route('/')
 def serve_index():
-    """Serve the homepage."""
-    return send_from_directory('.', 'test_index.html')
+    #Serve the homepage.
+    return send_from_directory('.', 'index.html')
 
 @app.route('/database')
 def database():
-    """Serve the database page with data from the MySQL database."""
+    #Serve the database page with data from the MySQL database
     cursor = db.cursor()
     cursor.execute("SELECT * FROM places")
     places = cursor.fetchall()
@@ -35,27 +37,46 @@ def database():
 
 @app.route('/maps')
 def maps():
-    """Serve the maps page."""
+    #Serve the maps page.
     return send_from_directory('.', 'maps.html')
 
 @app.route('/random')
-def random():
-    """Serve the random trip page."""
+def random_page():
+    #Serve the random trip page.
     return send_from_directory('.', 'random.html')
 
 @app.route('/weather')
 def weather():
-    """Serve the weather page."""
+    #Serve the weather page.
     return send_from_directory('.', 'weather.html')
 
 @app.route('/trivia')
 def trivia():
-    """Serve the trivia page."""
+    #Serve the trivia page.
     return send_from_directory('.', 'trivia.html')
+
+@app.route('/random_place')
+def random_place(): #Function for random page functionality 
+    cursor = db.cursor()
+    cursor.execute("SELECT * FROM places")
+    places = cursor.fetchall()
+    if places:
+        place = random.choice(places)
+        place_dict = {
+            'id': place[0],
+            'name': place[1],
+            'description': place[2],
+            'image_url': place[3],
+            'address': place[4],
+            'rating': place[5]
+        }
+        return jsonify({'place': place_dict})
+    else:
+        return jsonify({'error': 'No places found'}), 404
 
 @app.route('/place/<int:place_id>')
 def place_details(place_id):
-    """Serve the details page for a specific place."""
+    #Serve the details page for a specific place.
     cursor = db.cursor()
     cursor.execute("SELECT * FROM places WHERE id = %s", (place_id,))
     place = cursor.fetchone()
@@ -81,7 +102,7 @@ def place_details(place_id):
 
 @app.route('/submit_feedback', methods=['POST'])
 def submit_feedback():
-    """Handle feedback submission for a specific place."""
+    #Handle feedback submission for a specific place.
     feedback = request.form['feedback']
     rating = request.form['rating']
     place_id = request.form['place_id']
@@ -104,22 +125,22 @@ def submit_feedback():
 
 @app.route('/images/<path:filename>')
 def serve_image(filename):
-    """Serve image files."""
+    #Serve image files.
     return send_from_directory('images', filename)
 
 @app.route('/css/<path:filename>')
 def serve_css(filename):
-    """Serve CSS files."""
+    #Serve CSS files.
     return send_from_directory('css', filename)
 
 @app.route('/js/<path:filename>')
 def serve_js(filename):
-    """Serve JavaScript files."""
+    #Serve JavaScript files.
     return send_from_directory('js', filename)
 
 @app.route('/static/<path:filename>')
 def serve_static(filename):
-    """Serve static files."""
+    #Serve static files.
     return send_from_directory('static', filename)
 
 if __name__ == '__main__':

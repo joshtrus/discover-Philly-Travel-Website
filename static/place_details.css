@@ -1,4 +1,6 @@
-/* place_details.css
+/* place_details.css*/
+
+/* Author: Sahil Adhikari, sa3933 */
 
 /* Styles for Place Details Page */
 
@@ -8,6 +10,38 @@ body {
     font-family: Arial, sans-serif; /* Set font family for better readability */
 }
 
+/* Navigation bar styles */
+.logo {
+    height: 70px;
+    width: 70px;
+}
+
+
+nav ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: #333;
+    display: flex;
+    
+}
+
+nav li {
+    flex: 1; /* Ensure all list items have equal space */
+}
+
+nav li a {
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 14px 12px;
+    text-decoration: none;
+}
+
+nav li a:hover {
+    background-color: #111;
+}
 /* Style place image */
 .place-image {
     width: 100%; /* Set width to fill container */

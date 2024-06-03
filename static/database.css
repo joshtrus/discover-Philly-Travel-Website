@@ -1,9 +1,44 @@
+/* database.css*/
+
+/* Author: Sahil Adhikari, sa3933 */
+
 /* Define global styles for the body */
 body {
     font-family: Arial, sans-serif; /* Set font family */
     margin: 0; /* Remove default margin */
     padding: 0; /* Remove default padding */
     background-color: #f0fff0; /* Set background color */
+}
+
+/* Navigation bar styles */
+.logo{
+  height: 70px; 
+  width: 70px; 
+}
+
+ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  background-color: #333;
+}
+
+li {
+  float: left;
+}
+
+li a {
+  display: block;
+  color: white;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+  width: 250px;
+}
+
+li a:hover {
+  background-color: #111;
 }
 
 /* Style heading level 1 */
@@ -14,28 +49,33 @@ h1 {
 /* Container for places */
 .places-container {
     display: flex; /* Use flexbox layout */
-    justify-content: center; /* Center align items horizontally */
+    flex-direction: column; /* Stack items vertically */
+    align-items: center; /* Center align items horizontally */
+    width: 100%; /* Take up full width */
+    box-sizing: border-box; /* Include padding and border in the element's total width and height */
+    padding: 20px; /* Add some padding */
 }
 
 /* Style individual place */
 .place {
-    width: 95%; /* Set width */
-    max-width: 900px; /* Limit maximum width */
+    width: 95%; /* Set width to 95% */
+    max-width: 1200px; /* Limit maximum width */
     margin: 20px auto; /* Center horizontally and add margin */
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Add box shadow */
     border-radius: 10px; /* Add border radius */
     overflow: hidden; /* Hide overflowing content */
     background-color: #ffffff; /* Set background color */
+    text-align: center; /* Center align text */
+    margin-left: 15%; /* Move box to the right */
 }
 
 /* Style place image */
 .place-image {
-    width: 120%; /* Set width to fill container */
+    width: 100%; /* Set width to fill container */
     height: 320px; /* Set fixed height */
     object-fit: contain; /* Maintain aspect ratio and cover container */
     object-position: center; /* Align image centrally */
 }
-
 
 /* Style place details */
 .place-details {
@@ -62,6 +102,7 @@ h1 {
 .rating {
     display: flex; /* Use flexbox layout */
     align-items: center; /* Align items vertically */
+    justify-content: center; /* Center align items horizontally */
 }
 
 /* Style rating stars */
