@@ -143,5 +143,10 @@ def serve_static(filename):
     #Serve static files.
     return send_from_directory('static', filename)
 
+@app.route('/fonts/<path:filename>')
+def serve_fonts(filename):
+    #Serve font files.
+    return send_from_directory('fonts', filename)
+
 if __name__ == '__main__':
     app.run(debug=True)
