@@ -61,10 +61,54 @@ Discover Philly is a website designed to showcase various places to visit in Phi
 On some READMEs, you may see small images that convey metadata, such as whether or not all the tests are passing for the project. You can use Shields to add some to your README. Many services also have instructions for adding a badge.
 
 ## Visuals
-Depending on what you are making, it can be a good idea to include screenshots or even a video (you'll frequently see GIFs rather than actual videos). Tools like ttygif can help, but check out Asciinema for a more sophisticated method.
+Homepage
+![Homepage]https://gitlab.cci.drexel.edu/fds24/ci10x-student-teams/60/14/ci-102-lab-60-group-14/-/blob/main/images/homepage.png
+
+Description: This is the homepage of the Discover Philly application, providing navigation to all features.
+
+
+Places:
+![Places]https://gitlab.cci.drexel.edu/fds24/ci10x-student-teams/60/14/ci-102-lab-60-group-14/-/blob/main/images/Places.png
+
+Description: This page shows a list of some of the  the famous places around Philadelphia.
+
+Place Details
+![Place Details]https://gitlab.cci.drexel.edu/fds24/ci10x-student-teams/60/14/ci-102-lab-60-group-14/-/blob/main/images/place_details.png
+
+Description: This screen shows detailed information about a selected place, including its description, address, rating, and user feedback.
+
+Random Trip
+![Random Trip]https://gitlab.cci.drexel.edu/fds24/ci10x-student-teams/60/14/ci-102-lab-60-group-14/-/blob/main/images/random.png
+
+Description: The Random Trip feature suggests a random place to visit, providing a quick and exciting way to explore new places.
+
+Maps
+![Maps]https://gitlab.cci.drexel.edu/fds24/ci10x-student-teams/60/14/ci-102-lab-60-group-14/-/blob/main/images/maps.png
+
+Description: The Maps feature provides location maps for various places in Philadelphia.
+
+Weather
+![Weather]https://gitlab.cci.drexel.edu/fds24/ci10x-student-teams/60/14/ci-102-lab-60-group-14/-/blob/main/images/weather.png
+
+Description: The Weather feature displays current weather updates for Philadelphia.
+
+Trivia
+![Trivia]https://gitlab.cci.drexel.edu/fds24/ci10x-student-teams/60/14/ci-102-lab-60-group-14/-/blob/main/images/trivia.png
+
+Description: The Trivia feature offers fun facts and interesting information about Philadelphia.
+
+
 
 ## Installation
-Within a particular ecosystem, there may be a common way of installing things, such as using Yarn, NuGet, or Homebrew. However, consider the possibility that whoever is reading your README is a novice and would like more guidance. Listing specific steps helps remove ambiguity and gets people to using your project as quickly as possible. If it only runs in a specific context like a particular programming language version or operating system or has dependencies that have to be installed manually, also add a Requirements subsection.
+1. Install Python: https://www.python.org/downloads/
+2. Install Flask: Mac: Open Terminal, install flask using: pip3 install Flask
+                  Windows: Open Command Prompt, install flask using: pip3 install Flask
+3. Install MySql Workbench: https://dev.mysql.com/downloads/workbench/
+4. Install MySQL Connector: Mac: Open Terminal: pip3 install mysql-connector-python
+                            Windows: Open Command Prompt: pip install mysql-connector-python
+
+
+
 
 ## Usage
 Use examples liberally, and show the expected output if you can. It's helpful to have inline the smallest example of usage that you can demonstrate, while providing links to more sophisticated examples if they are too long to reasonably include in the README.
@@ -76,17 +120,28 @@ Tell people where they can go to for help. It can be any combination of an issue
 If you have ideas for releases in the future, it is a good idea to list them in the README.
 
 ## Contributing
-State if you are open to contributions and what your requirements are for accepting them.
 
-For people who want to make changes to your project, it's helpful to have some documentation on how to get started. Perhaps there is a script that they should run or some environment variables that they need to set. Make these steps explicit. These instructions could also be useful to your future self.
+We are open to any contributions that would help enhance the project in terms of new features, visual appeal and more interactivity.
 
-You can also document commands to lint the code or run tests. These steps help to ensure high code quality and reduce the likelihood that the changes inadvertently break something. Having instructions for running tests is especially helpful if it requires external setup, such as starting a Selenium server for testing in a browser.
+To get the website running, first you have to configure MySQL Workbench by connecting to MySQL Server and creating host, root and password. When you configure MySQL make sure to remember your credentials for host, root and password. Open MySQLWorkbench and execute the database phillyTravelDatabase.sql. To run the script, click on the lightning bolt icon (Execute) or press Ctrl + Shift + Enter (Windows) or Cmd + Shift + Enter (Mac). After running the script, check the Action Output pane at the bottom to see if the script executed successfully. Verify the Database: In the left sidebar, under the SCHEMAS section, you should see the newly created database and its tables. Expand the database and tables to verify that everything has been created as expected.
+
+Now open test_database.py and put your own host, root and password under 'db = mysql.connector.connect'. Run test_database.py and now you can open the website and browse.
+
+
 
 ## Authors and acknowledgment
-Show your appreciation to those who have contributed to the project.
+Authors for this project are:
+Josh Morris : Frontend Developer
+Wes Lee: Backend Developer
+Chris Alex: Frontend and Backend Developer
+Sahil Adhikari: Database Administrator and Backend Developer
+
+We would like to acknowledgment W3Schools, Leaflet and Youtube channel freecodecamp and TechWithTim for guidance and source during this project development.
 
 ## License
-For open source projects, say how it is licensed.
+This project was created for educational purposes by undergraduate students and does not have a formal open source license. Feel free to use and modify the code for your own educational purposes
 
 ## Project status
-If you have run out of energy or time for your project, put a note at the top of the README saying that development has slowed down or stopped completely. Someone may choose to fork your project or volunteer to step in as a maintainer or owner, allowing your project to keep going. You can also make an explicit request for maintainers.
+This project is complete and currently not under active development.
+
+
