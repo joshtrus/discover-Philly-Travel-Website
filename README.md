@@ -62,38 +62,38 @@ On some READMEs, you may see small images that convey metadata, such as whether 
 
 ## Visuals
 Homepage
-![Homepage]https://gitlab.cci.drexel.edu/fds24/ci10x-student-teams/60/14/ci-102-lab-60-group-14/-/blob/main/images/homepage.png
+![Homepage](https://gitlab.cci.drexel.edu/fds24/ci10x-student-teams/60/14/ci-102-lab-60-group-14/-/blob/main/images/homepage.png)
 
 Description: This is the homepage of the Discover Philly application, providing navigation to all features.
 
 
 Places:
-![Places]https://gitlab.cci.drexel.edu/fds24/ci10x-student-teams/60/14/ci-102-lab-60-group-14/-/blob/main/images/Places.png
+![Places](https://gitlab.cci.drexel.edu/fds24/ci10x-student-teams/60/14/ci-102-lab-60-group-14/-/blob/main/images/Places.png)
 
 Description: This page shows a list of some of the  the famous places around Philadelphia.
 
 Place Details
-![Place Details]https://gitlab.cci.drexel.edu/fds24/ci10x-student-teams/60/14/ci-102-lab-60-group-14/-/blob/main/images/place_details.png
+![Place Details](https://gitlab.cci.drexel.edu/fds24/ci10x-student-teams/60/14/ci-102-lab-60-group-14/-/blob/main/images/place_details.png)
 
 Description: This screen shows detailed information about a selected place, including its description, address, rating, and user feedback.
 
 Random Trip
-![Random Trip]https://gitlab.cci.drexel.edu/fds24/ci10x-student-teams/60/14/ci-102-lab-60-group-14/-/blob/main/images/random.png
+![Random Trip](https://gitlab.cci.drexel.edu/fds24/ci10x-student-teams/60/14/ci-102-lab-60-group-14/-/blob/main/images/random.png)
 
 Description: The Random Trip feature suggests a random place to visit, providing a quick and exciting way to explore new places.
 
 Maps
-![Maps]https://gitlab.cci.drexel.edu/fds24/ci10x-student-teams/60/14/ci-102-lab-60-group-14/-/blob/main/images/maps.png
+![Maps](https://gitlab.cci.drexel.edu/fds24/ci10x-student-teams/60/14/ci-102-lab-60-group-14/-/blob/main/images/maps.png)
 
 Description: The Maps feature provides location maps for various places in Philadelphia.
 
 Weather
-![Weather]https://gitlab.cci.drexel.edu/fds24/ci10x-student-teams/60/14/ci-102-lab-60-group-14/-/blob/main/images/weather.png
+![Weather](https://gitlab.cci.drexel.edu/fds24/ci10x-student-teams/60/14/ci-102-lab-60-group-14/-/blob/main/images/weather.png)
 
 Description: The Weather feature displays current weather updates for Philadelphia.
 
 Trivia
-![Trivia]https://gitlab.cci.drexel.edu/fds24/ci10x-student-teams/60/14/ci-102-lab-60-group-14/-/blob/main/images/trivia.png
+![Trivia](https://gitlab.cci.drexel.edu/fds24/ci10x-student-teams/60/14/ci-102-lab-60-group-14/-/blob/main/images/trivia.png)
 
 Description: The Trivia feature offers fun facts and interesting information about Philadelphia.
 
