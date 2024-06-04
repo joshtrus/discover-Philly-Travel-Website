@@ -58,7 +58,9 @@ Discover Philly
 ## Description
 Discover Philly is a website designed to showcase various places to visit in Philadelphia, specifically for tourists who come to Philadelphia for visit. The website allows users to explore detailed information about each place, including images, descriptions, addresses, and ratings. Users can also provide feedback and rate the places they have visited. Users can use our random feature which allows user to look at a random picture and get info about that place, or skip it for the next picture if they don't like the previous image. Users can also plan their trips by using our weather feature which displays the weather for the day. Users can also use our map feature to figure out directions from each places. Additionally, users can test their knowledge on Philadelphia by playing our trivia.
 ## Badges
-On some READMEs, you may see small images that convey metadata, such as whether or not all the tests are passing for the project. You can use Shields to add some to your README. Many services also have instructions for adding a badge.
+
+![Version](https://img.shields.io/badge/version-1.0.0-blue)
+![Status](https://img.shields.io/badge/status-completed-brightgreen)
 
 ## Visuals
 
@@ -108,10 +110,8 @@ Description: The Trivia feature offers fun facts and interesting information abo
 Use examples liberally, and show the expected output if you can. It's helpful to have inline the smallest example of usage that you can demonstrate, while providing links to more sophisticated examples if they are too long to reasonably include in the README.
 
 ## Support
-Tell people where they can go to for help. It can be any combination of an issue tracker, a chat room, an email address, etc.
+For additioanl help, feel free to email your concerns at sa3933@drexel.edu
 
-## Roadmap
-If you have ideas for releases in the future, it is a good idea to list them in the README.
 
 ## Contributing
 
