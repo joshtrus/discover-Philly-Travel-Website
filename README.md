@@ -132,7 +132,7 @@ Authors for this project are:
 - Chris Alex: Frontend and Backend Developer
 - Sahil Adhikari: Database Administrator and Backend Developer
 
-We would like to acknowledgment W3Schools, Leaflet and Youtube channel freecodecamp and TechWithTim for guidance and source during this project development.
+We would like to acknowledgment W3Schools, Leaflet and Youtube channels freecodecamp and TechWithTim for guidance and being source of learning during this project development.
 
 ## License
 This project was created for educational purposes by undergraduate students and does not have a formal open source license. Feel free to use and modify the code for your own educational purposes.
