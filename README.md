@@ -61,50 +61,50 @@ Description: The Trivia feature offers fun facts and interesting information abo
 ## Usage
 To use the Discover Philly application, follow these steps:
 
-Homepage:
+**Homepage:**
 
 Navigate to the homepage to see an overview of the application.
 
 Example: Open and run test_database.py and load the website on the link provided by Python.
 
-Places:
+**Places:**
 
 Click on the "Places" link in the navigation bar to view a list of famous places around Philadelphia.
 
 Example: Click on the "Places" link to see a list of attractions.
 
-Place Details:
+**Place Details:**
 
 Click on any place from the list to see detailed information about it, including its description, address, rating, and user feedback.
 
 Example: Click on "American Philosophical Society" or any other places listed to view its details. You can also provide feedback and ratings to that particular place.
 
 
-Random Trip:
+**Random Trip:**
 
 Use the "Random Trip" feature to get a suggestion for a random place to visit.
 
 Example: Click on the "Random Trip" link to get a random place suggestion. Click "Skip" if you want to skip that place or click "Take me there" for more information about that place.
 
-Maps:
+**Maps:**
 
 Access the "Maps" feature to view location maps for various places in Philadelphia.
 
 Example: Click on the "Maps" link to see the maps.
 
-Weather:
+**Weather:**
 
 Check the "Weather" section for current weather updates in Philadelphia.
 
 Example: Click on the "Weather" link to view the weather updates.
 
-Trivia:
+**Trivia:**
 
 Explore the "Trivia" section for fun facts and interesting information about Philadelphia.
 
 Example: Click on the "Trivia" link to learn more about Philadelphia.
 
-Submitting Feedback:
+**Submitting Feedback:**
 
 On the place details page, you can submit feedback and a rating for a place.
 
