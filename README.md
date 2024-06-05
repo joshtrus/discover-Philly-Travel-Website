@@ -127,10 +127,10 @@ Now open test_database.py and put your own host, root and password under 'db = m
 ## Authors and acknowledgment
 Authors for this project are:
 
--Josh Morris : Frontend Developer
--Wes Lee: Backend Developer
--Chris Alex: Frontend and Backend Developer
--Sahil Adhikari: Database Administrator and Backend Developer
+- Josh Morris : Frontend Developer
+- Wes Lee: Backend Developer
+- Chris Alex: Frontend and Backend Developer
+- Sahil Adhikari: Database Administrator and Backend Developer
 
 We would like to acknowledgment W3Schools, Leaflet and Youtube channel freecodecamp and TechWithTim for guidance and source during this project development.
 
