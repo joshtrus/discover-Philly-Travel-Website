@@ -77,7 +77,8 @@ Place Details:
 
 Click on any place from the list to see detailed information about it, including its description, address, rating, and user feedback.
 
-Example: Click on "American Philosophical Society" to view its details.
+Example: Click on "American Philosophical Society" or any other places listed to view its details. You can also provide feedback and ratings to that particular place.
+
 
 Random Trip:
 
@@ -101,7 +102,7 @@ Trivia:
 
 Explore the "Trivia" section for fun facts and interesting information about Philadelphia.
 
-Example: Click on the "Trivia" link to learn more.
+Example: Click on the "Trivia" link to learn more about Philadelphia.
 
 Submitting Feedback:
 
@@ -133,7 +134,7 @@ Sahil Adhikari: Database Administrator and Backend Developer
 We would like to acknowledgment W3Schools, Leaflet and Youtube channel freecodecamp and TechWithTim for guidance and source during this project development.
 
 ## License
-This project was created for educational purposes by undergraduate students and does not have a formal open source license. Feel free to use and modify the code for your own educational purposes
+This project was created for educational purposes by undergraduate students and does not have a formal open source license. Feel free to use and modify the code for your own educational purposes.
 
 ## Project status
 This project is complete and currently not under active development.
